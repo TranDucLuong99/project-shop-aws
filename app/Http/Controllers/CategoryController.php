@@ -32,13 +32,20 @@ class CategoryController extends Controller
     public function postCreate(Request $request)
     {
         $category              = new Category();
+        if($request->hasFile('image')){
+            $fileName = 'images/'.$category->image;
+            if(File::exists($fileName)){
+                File::delete($fileName);
+            }
+            $image                 = $request->file('image');
+            $extension             = $image->getClientOriginalExtension();
+            $fileName              = time().'.'.$extension;
+            $image                 = $image->move('images', $fileName);
+            $category->image       = $fileName;
+        }
         $category->name        = $request->name;
+        $category->title       = $request->title;
         $category->description = $request->description;
-        $image                 = $request->file('image');
-        $extension             = $image->getClientOriginalExtension();
-        $fileName              = time().'.'.$extension;
-        $image                 = $image->move('images', $fileName);
-        $category->image       = $fileName;
         $category->save();
         return redirect(route('category.index'))->with('info', 'Tạo category thành công với id = ' . $category->id);
     }
@@ -51,14 +58,15 @@ class CategoryController extends Controller
             if(File::exists($fileName)){
                 File::delete($fileName);
             }
-            $category->name        = $request->name;
-            $category->description = $request->description;
             $image                 = $request->file('image');
             $extension             = $image->getClientOriginalExtension();
             $fileName              = time().'.'.$extension;
             $image                 = $image->move('images', $fileName);
             $category->image       = $fileName;
         }
+        $category->name        = $request->name;
+        $category->title       = $request->title;
+        $category->description = $request->description;
         $category->update();
         return redirect(route('category.index'))->with('info', 'Sửa category có id = ' . $request->id . ' thành công');
 

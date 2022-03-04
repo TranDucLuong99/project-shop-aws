@@ -44,7 +44,11 @@
                             @csrf
                             <div class="form-group">
                                 <label><strong>Tên: </strong></label>
-                                <input type="text" name="name" class="form-control" value="{{$is_create ? '' : $category->name}}">
+                                <input type="text" name="name" class="form-control" value="{{$is_create ? '' : $category->name}}" placeholder="Vui lòng nhập tên loại hàng">
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Title: </strong></label>
+                                <input type="text" name="title" class="form-control" value="{{$is_create ? '' : $category->title}}" placeholder="Vui lòng nhập mô tả ngắn">
                             </div>
                             <div class="form-group">
                                 <label for="image"><strong>Chọn ảnh</strong></label>
