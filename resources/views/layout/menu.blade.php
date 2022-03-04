@@ -17,8 +17,8 @@
                   <p>Category</p>
                 </a>
               </li>
-
             </ul>
+
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('product.index')}}" class="nav-link {{(Request::route()->getName() == "product.index") ? 'active' : ''}}">
@@ -26,7 +26,15 @@
                   <p>Product</p>
                 </a>
               </li>
+            </ul>
 
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('new.index')}}" class="nav-link {{(Request::route()->getName() == "new.index") ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>

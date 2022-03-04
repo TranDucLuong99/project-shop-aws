@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -35,4 +36,12 @@ Route::group(['prefix' => 'admin'], function (){
     Route::post('product/edit/{id}',[ProductController::class, 'postEdit'])->name('product.product_edit');
     Route::delete('product',[ProductController::class, 'delete'])->name('product.delete');
     Route::patch('product',[ProductController::class, 'restore'])->name('product.restore');
+
+    Route::get('/new', [NewsController::class, 'index'])->name('new.index');
+    Route::get('new/create',[NewsController::class, 'getCreate'])->name('new.get_create');
+    Route::post('new/create',[NewsController::class, 'postCreate'])->name('new.new_create');
+    Route::get('new/edit/{id}',[NewsController::class, 'getEdit'])->name('new.get_edit');
+    Route::post('new/edit/{id}',[NewsController::class, 'postEdit'])->name('new.new_edit');
+    Route::delete('new',[NewsController::class, 'delete'])->name('new.delete');
+    Route::patch('new',[NewsController::class, 'restore'])->name('new.restore');
 });
