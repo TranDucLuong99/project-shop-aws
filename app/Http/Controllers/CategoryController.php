@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Env;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
     public function index(Request $request){
@@ -40,7 +36,7 @@ class CategoryController extends Controller
             $image                 = $request->file('image');
             $extension             = $image->getClientOriginalExtension();
             $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images', $fileName);
+            $image                 = $image->move('images/category', $fileName);
             $category->image       = $fileName;
         }
         $category->name        = $request->name;
@@ -61,7 +57,7 @@ class CategoryController extends Controller
             $image                 = $request->file('image');
             $extension             = $image->getClientOriginalExtension();
             $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images', $fileName);
+            $image                 = $image->move('images/category', $fileName);
             $category->image       = $fileName;
         }
         $category->name        = $request->name;

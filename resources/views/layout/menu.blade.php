@@ -21,7 +21,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('category.index')}}" class="nav-link {{(Request::route()->getName() == "product.index") ? 'active' : ''}}">
+                <a href="{{route('product.index')}}" class="nav-link {{(Request::route()->getName() == "product.index") ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Product</p>
                 </a>

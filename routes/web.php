@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +28,11 @@ Route::group(['prefix' => 'admin'], function (){
     Route::delete('category',[CategoryController::class, 'delete'])->name('category.delete');
     Route::patch('category',[CategoryController::class, 'restore'])->name('category.restore');
 
-    Route::get('/product', [CategoryController::class, 'index'])->name('product.index');
-    Route::get('product/create',[CategoryController::class, 'getCreate'])->name('product.get_create');
-    Route::post('product/create',[CategoryController::class, 'postCreate'])->name('product.category_create');
-    Route::get('product/edit/{id}',[CategoryController::class, 'getEdit'])->name('product.get_edit');
-    Route::post('product/edit/{id}',[CategoryController::class, 'postEdit'])->name('product.category_edit');
-    Route::delete('product',[CategoryController::class, 'delete'])->name('product.delete');
-    Route::patch('product',[CategoryController::class, 'restore'])->name('product.restore');
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('product/create',[ProductController::class, 'getCreate'])->name('product.get_create');
+    Route::post('product/create',[ProductController::class, 'postCreate'])->name('product.product_create');
+    Route::get('product/edit/{id}',[ProductController::class, 'getEdit'])->name('product.get_edit');
+    Route::post('product/edit/{id}',[ProductController::class, 'postEdit'])->name('product.product_edit');
+    Route::delete('product',[ProductController::class, 'delete'])->name('product.delete');
+    Route::patch('product',[ProductController::class, 'restore'])->name('product.restore');
 });

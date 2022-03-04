@@ -19,12 +19,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                  <div class="col-sm-6">
-                        <a href="{{route('category.get_create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Thêm category</a>
+                        <a href="{{route('product.get_create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Thêm product</a>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="home">Home</a></li>
-                        <li class="breadcrumb-item active">Category</li>
+                        <li class="breadcrumb-item active">product</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -40,7 +40,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <h3 class="card-title">Quản lý category</h3>
+                        <h3 class="card-title">Quản lý product</h3>
                     </div>
                     <div class="col-sm-12 col-md-2"></div>
                     <div class="col-sm-12 col-md-4"></div>
@@ -75,14 +75,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $key)
+                    @foreach($products as $key)
                     <tr>
                         <td style="text-align: center">{{$key->id}}</td>
                         <td>{{$key->name}}</td>
-                        <!-- <td>{{$key->description }}</td> -->
                         <td>
                             @if($key->image)
-                                <img style="max-width:150px; height: 50px;" src="{{asset('images/category/'.$key->image)}}">
+                                <img style="max-width:150px; height: 50px;" src="{{asset('images/products/'.$key->image)}}">
                             @endif
                         </td>
                         <td style="text-align: center">
@@ -94,12 +93,11 @@
                         </td>
 
                         <td style="text-align: center">
-                        <!-- {{Carbon\Carbon::parse($key->updated_at)->format('Y/m/d')}} -->
-                        <a href="{{route('category.get_edit',$key->id)}}" class="btn btn-default">
+                        <a href="{{route('product.get_edit',$key->id)}}" class="btn btn-default">
                                                             <i class="fas fa-edit"></i></a>
                         @if (empty($key->deleted_at))
                             <button class="btn btn-danger btn-flat" title="Delete"
-                                    data-category_id="{{$key->id}}"
+                                    data-product_id="{{$key->id}}"
                                     data-toggle="modal" data-target="#delete">
                                 <i class="fas fa-times">
                                 </i>
@@ -110,7 +108,7 @@
                         @if (!empty($key->deleted_at))
                             <button type="button" class="btn btn-primary btn-flat"
                                     title="Restore"
-                                    data-category_id="{{$key->id}}"
+                                    data-product_id="{{$key->id}}"
                                     data-toggle="modal" data-target="#restore">
                                     <i class="fas fa-redo-alt"></i>
                             </button>
@@ -137,8 +135,8 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-        @include('Admin.categories.delete_modal')
-        @include('Admin.categories.restore_modal')
+        @include('Admin.products.delete_modal')
+        @include('Admin.products.restore_modal')
       </div>
       <!-- /.container-fluid -->
     </section>
