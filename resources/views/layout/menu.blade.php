@@ -36,6 +36,15 @@
                 </a>
               </li>
             </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('banner.index')}}" class="nav-link {{(Request::route()->getName() == "banner.index") ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Banner</p>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>

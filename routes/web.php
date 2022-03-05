@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsController;
@@ -44,4 +45,12 @@ Route::group(['prefix' => 'admin'], function (){
     Route::post('new/edit/{id}',[NewsController::class, 'postEdit'])->name('new.new_edit');
     Route::delete('new',[NewsController::class, 'delete'])->name('new.delete');
     Route::patch('new',[NewsController::class, 'restore'])->name('new.restore');
+
+    Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
+    Route::get('banner/create',[BannerController::class, 'getCreate'])->name('banner.get_create');
+    Route::post('banner/create',[BannerController::class, 'postCreate'])->name('banner.banner_create');
+    Route::get('banner/edit/{id}',[BannerController::class, 'getEdit'])->name('banner.get_edit');
+    Route::post('banner/edit/{id}',[BannerController::class, 'postEdit'])->name('banner.banner_edit');
+    Route::delete('banner',[BannerController::class, 'delete'])->name('banner.delete');
+    Route::patch('banner',[BannerController::class, 'restore'])->name('banner.restore');
 });
