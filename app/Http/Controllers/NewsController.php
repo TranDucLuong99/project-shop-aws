@@ -15,12 +15,6 @@ class NewsController extends Controller
             view('Admin.news.index', compact('news'));
     }
 
-    public function getEdit(Request $request, $id)
-    {
-        $category = News::find($id);
-        return view('Admin.news.create', compact('category'));
-    }
-
     public function getCreate(Request $request)
     {
         return view('Admin.news.create');
@@ -28,44 +22,50 @@ class NewsController extends Controller
 
     public function postCreate(Request $request)
     {
-        $category              = new News();
+        $new              = new News();
         if($request->hasFile('image')){
-            $fileName = 'images/'.$category->image;
+            $fileName = 'images/'.$new->image;
             if(File::exists($fileName)){
                 File::delete($fileName);
             }
             $image                 = $request->file('image');
             $extension             = $image->getClientOriginalExtension();
             $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/category', $fileName);
-            $category->image       = $fileName;
+            $image                 = $image->move('images/new', $fileName);
+            $new->image       = $fileName;
         }
-        $category->name        = $request->name;
-        $category->title       = $request->title;
-        $category->description = $request->description;
-        $category->save();
-        return redirect(route('category.index'))->with('info', 'Tạo mới tin tức thành công với id = ' . $category->id);
+        $new->name        = $request->name;
+        $new->title       = $request->title;
+        $new->description = $request->description;
+        $new->save();
+        return redirect(route('new.index'))->with('info', 'Tạo mới tin tức thành công với id = ' . $new->id);
+    }
+
+    public function getEdit(Request $request, $id)
+    {
+        $new = News::find($id);
+        return view('Admin.news.create', compact('new'));
     }
 
     public function postEdit(Request $request, $id)
     {
-        $category = News::findOrFail($id);
+        $new = News::findOrFail($id);
         if($request->hasFile('image')){
-            $fileName = 'images/'.$category->image;
+            $fileName = 'images/'.$new->image;
             if(File::exists($fileName)){
                 File::delete($fileName);
             }
             $image                 = $request->file('image');
             $extension             = $image->getClientOriginalExtension();
             $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/category', $fileName);
-            $category->image       = $fileName;
+            $image                 = $image->move('images/new', $fileName);
+            $new->image       = $fileName;
         }
-        $category->name        = $request->name;
-        $category->title       = $request->title;
-        $category->description = $request->description;
-        $category->update();
-        return redirect(route('category.index'))->with('info', 'Sửa tin tức có id = ' . $request->id . ' thành công');
+        $new->name        = $request->name;
+        $new->title       = $request->title;
+        $new->description = $request->description;
+        $new->update();
+        return redirect(route('new.index'))->with('info', 'Sửa tin tức có id = ' . $request->id . ' thành công');
 
     }
 

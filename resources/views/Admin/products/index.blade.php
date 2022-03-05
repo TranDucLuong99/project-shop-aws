@@ -24,7 +24,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="home">Home</a></li>
-                        <li class="breadcrumb-item active">product</li>
+                        <li class="breadcrumb-item active">Products</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -75,9 +75,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key)
+                    @foreach($products as $id => $key)
                     <tr>
-                        <td style="text-align: center">{{$key->id}}</td>
+                        <td style="text-align: center">{{$id + 1}}</td>
                         <td>{{$key->name}}</td>
                         <td>
                             @if($key->image)

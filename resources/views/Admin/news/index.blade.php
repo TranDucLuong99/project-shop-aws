@@ -75,9 +75,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($news as $key)
+                    @foreach($news as $id => $key)
                     <tr>
-                        <td style="text-align: center">{{$key->id}}</td>
+                        <td style="text-align: center">{{$id + 1}}</td>
                         <td>{{$key->name}}</td>
                         <!-- <td>{{$key->description }}</td> -->
                         <td>
