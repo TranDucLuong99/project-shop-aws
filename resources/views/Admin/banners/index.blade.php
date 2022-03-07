@@ -69,8 +69,10 @@
                     <tr>
                         <th style="text-align: center">ID</th>
                         <th style="text-align: center">Tên</th>
+                        <th style="text-align: center">Title</th>
                         <th style="text-align: center">Ảnh</th>
                         <th style="text-align: center">Trạng thái</th>
+                        <th style="text-align: center">Ngày tạo</th>
                         <th style="text-align: center">Hành động</th>
                     </tr>
                 </thead>
@@ -79,7 +81,7 @@
                     <tr>
                         <td style="text-align: center">{{$id + 1}}</td>
                         <td>{{$key->name}}</td>
-                        <!-- <td>{{$key->description }}</td> -->
+                        <td>{{$key->title}}</td>
                         <td>
                             @if($key->image)
                                 <img style="max-width:150px; height: 50px;" src="{{asset('images/banner/'.$key->image)}}">
@@ -92,9 +94,10 @@
                             '<span class="badge  badge-danger">InActive</span>'
                         !!}
                         </td>
-
                         <td style="text-align: center">
-                        <!-- {{Carbon\Carbon::parse($key->updated_at)->format('Y/m/d')}} -->
+                            {{Carbon\Carbon::parse($key->updated_at)->format('Y/m/d')}}
+                        </td>
+                        <td style="text-align: center">
                         <a href="{{route('banner.get_edit',$key->id)}}" class="btn btn-default">
                                                             <i class="fas fa-edit"></i></a>
                         @if (empty($key->deleted_at))
