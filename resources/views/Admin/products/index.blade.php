@@ -86,7 +86,7 @@
                         <td>{{$key->title}}</td>
                         <td>
                             @if($key->image)
-                                <img style="max-width:150px; height: 50px;" src="{{asset('images/products/'.$key->image)}}">
+                                <img style="max-width:150px; height: 50px;" src="{{asset('images/product/'.$key->image)}}">
                             @endif
                         </td>
                         <td style="text-align: center">

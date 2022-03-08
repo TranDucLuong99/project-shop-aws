@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use Aws\Credentials\Credentials;
+use Aws\S3\S3Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 class ProductController extends Controller
@@ -32,17 +34,29 @@ class ProductController extends Controller
     public function postCreate(Request $request)
     {
         $product              = new Product();
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$product->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/products', $fileName);
-            $product->image       = $fileName;
-        }
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3 = new S3Client($options);
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/product/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+            'Bucket' => config('aws.s3.bucket'),
+            'Key'    => "Product/{$fileName}",
+            'Body'   => fopen(public_path() . '/images/product/' . $tmp_file_name, 'rb'),
+        ]);
+        $product->image       = "$tmp_file_name";
         $product->name        = $request->name;
         $product->price       = $request->price;
         $product->category_id = $request->category_id;
@@ -58,17 +72,29 @@ class ProductController extends Controller
     public function postEdit(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$product->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/products', $fileName);
-            $product->image       = $fileName;
-        }
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3 = new S3Client($options);
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/product/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+            'Bucket' => config('aws.s3.bucket'),
+            'Key'    => "Product/{$fileName}",
+            'Body'   => fopen(public_path() . '/images/product/' . $tmp_file_name, 'rb'),
+        ]);
+        $product->image       = "$tmp_file_name";
         $product->name        = $request->name;
         $product->price       = $request->price;
         $product->category_id = $request->category_id;

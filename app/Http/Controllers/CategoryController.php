@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Aws\Credentials\Credentials;
+use Aws\S3\S3Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 class CategoryController extends Controller
@@ -27,18 +29,30 @@ class CategoryController extends Controller
 
     public function postCreate(Request $request)
     {
-        $category              = new Category();
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$category->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/category', $fileName);
-            $category->image       = $fileName;
-        }
+        $category    = new Category();
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3 = new S3Client($options);
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/category/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+                'Bucket' => config('aws.s3.bucket'),
+                'Key'    => "Category/{$fileName}",
+                'Body'   => fopen(public_path() . '/images/category/' . $tmp_file_name, 'rb'),
+        ]);
+        $category->image       = "$tmp_file_name";
         $category->name        = $request->name;
         $category->title       = $request->title;
         $category->description = $request->description;
@@ -49,17 +63,29 @@ class CategoryController extends Controller
     public function postEdit(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$category->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/category', $fileName);
-            $category->image       = $fileName;
-        }
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3 = new S3Client($options);
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/category/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+                'Bucket' => config('aws.s3.bucket'),
+                'Key'    => "Category/{$fileName}",
+                'Body'   => fopen(public_path() . '/images/category/' . $tmp_file_name, 'rb'),
+        ]);
+        $category->image       = "$tmp_file_name";
         $category->name        = $request->name;
         $category->title       = $request->title;
         $category->description = $request->description;

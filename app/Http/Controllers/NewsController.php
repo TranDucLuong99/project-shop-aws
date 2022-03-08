@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use Aws\Credentials\Credentials;
+use Aws\S3\S3Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 class NewsController extends Controller
@@ -23,17 +25,29 @@ class NewsController extends Controller
     public function postCreate(Request $request)
     {
         $new              = new News();
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$new->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/new', $fileName);
-            $new->image       = $fileName;
-        }
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3       = new S3Client($options);
+        $file     = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/new/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+            'Bucket' => config('aws.s3.bucket'),
+            'Key'    => "New/{$fileName}",
+            'Body'   => fopen(public_path() . '/images/new/' . $tmp_file_name, 'rb'),
+        ]);
+        $new->image       = "$tmp_file_name";
         $new->name        = $request->name;
         $new->title       = $request->title;
         $new->description = $request->description;
@@ -50,17 +64,29 @@ class NewsController extends Controller
     public function postEdit(Request $request, $id)
     {
         $new = News::findOrFail($id);
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$new->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images/new', $fileName);
-            $new->image       = $fileName;
-        }
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3       = new S3Client($options);
+        $file     = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/new/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+            'Bucket' => config('aws.s3.bucket'),
+            'Key'    => "New/{$fileName}",
+            'Body'   => fopen(public_path() . '/images/new/' . $tmp_file_name, 'rb'),
+        ]);
+        $new->image       = "$tmp_file_name";
         $new->name        = $request->name;
         $new->title       = $request->title;
         $new->description = $request->description;

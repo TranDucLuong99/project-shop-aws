@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin'], function (){
     Route::patch('new',[NewsController::class, 'restore'])->name('new.restore');
 
     Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
+
     Route::get('banner/create',[BannerController::class, 'getCreate'])->name('banner.get_create');
     Route::post('banner/create',[BannerController::class, 'postCreate'])->name('banner.banner_create');
     Route::get('banner/edit/{id}',[BannerController::class, 'getEdit'])->name('banner.get_edit');
@@ -54,3 +55,4 @@ Route::group(['prefix' => 'admin'], function (){
     Route::delete('banner',[BannerController::class, 'delete'])->name('banner.delete');
     Route::patch('banner',[BannerController::class, 'restore'])->name('banner.restore');
 });
+
