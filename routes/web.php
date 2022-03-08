@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::group(['prefix' => 'admin'], function (){
+Route::group(['prefix' => 'content'], function (){
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
     Route::get('category/create',[CategoryController::class, 'getCreate'])->name('category.get_create');
     Route::post('category/create',[CategoryController::class, 'postCreate'])->name('category.category_create');
@@ -47,7 +49,6 @@ Route::group(['prefix' => 'admin'], function (){
     Route::patch('new',[NewsController::class, 'restore'])->name('new.restore');
 
     Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
-
     Route::get('banner/create',[BannerController::class, 'getCreate'])->name('banner.get_create');
     Route::post('banner/create',[BannerController::class, 'postCreate'])->name('banner.banner_create');
     Route::get('banner/edit/{id}',[BannerController::class, 'getEdit'])->name('banner.get_edit');
@@ -55,4 +56,15 @@ Route::group(['prefix' => 'admin'], function (){
     Route::delete('banner',[BannerController::class, 'delete'])->name('banner.delete');
     Route::patch('banner',[BannerController::class, 'restore'])->name('banner.restore');
 });
+
+Route::group(['prefix' => 'order'], function (){
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('order/{id}',[OrderController::class, 'detail'])->name('order.detail');
+    // Route::get('/order-report', [OrderController::class, 'index'])->name('order.index');
+});
+
+Route::group(['prefix' => 'user'], function (){
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+});
+
 
