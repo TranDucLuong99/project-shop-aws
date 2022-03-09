@@ -60,6 +60,7 @@ Route::group(['prefix' => 'content'], function (){
 Route::group(['prefix' => 'order'], function (){
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('order/{id}',[OrderController::class, 'detail'])->name('order.detail');
+    Route::get('print/{id}',[OrderController::class, 'printOrder'])->name('order.print');
     // Route::get('/order-report', [OrderController::class, 'index'])->name('order.index');
 });
 

@@ -19,4 +19,9 @@ class OrderController extends Controller
         $orders = Order::with(['product', 'user','product.category'])->findOrFail($id);
         return view('Admin.orders.detail', compact('orders'));
     }
+
+    public function printOrder(Request $request, $id){
+        $orders = Order::with(['product', 'user','product.category'])->findOrFail($id);
+        return view('Admin.orders.print', compact('orders'));
+    }
 }

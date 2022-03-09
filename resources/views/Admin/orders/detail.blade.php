@@ -27,12 +27,13 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"><strong>Mã đơn hàng {{$orders->id}}</strong></h3>
+                    <a target="_blank" href="{{route('order.print',$orders->id)}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> In hóa đơn</a>
               </div>
               <div class="card-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th scope="col">Mã đơn hàng</th>
                                 <th scope="col">Tên khách hàng</th>
                                 <th scope="col">Địa chỉ</th>
                                 <th scope="col">Số điện thoại</th>
@@ -44,6 +45,7 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td>{{$orders->id}}</td>
                                 <td>{{$orders->fullname}}</td>
                                 <td>{{$orders->address}}</td>
                                 <td>{{$orders->phone}}</td>
@@ -81,7 +83,7 @@
                             @foreach($orders->product as $id => $products)
                             <tr>
                                 <td style="text-align: center">{{$id + 1}}</td>
-                                <td style="text-align: center">{{$products->id}}</td>
+                                <td style="text-align: center">LLSSP{{$products->id}}</td>
                                 <td style="text-align: center">{{$products->name}}</td>
                                 <td style="text-align: center">{{$products->category->name}}</td>
                                 <td style="text-align: center">
