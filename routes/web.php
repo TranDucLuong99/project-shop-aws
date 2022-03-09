@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.login');
 })->name('home');
 
 Route::group(['prefix' => 'content'], function (){
