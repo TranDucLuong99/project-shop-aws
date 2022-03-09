@@ -117,26 +117,4 @@ class BannerController extends Controller
         $banner->restore();
         return redirect($request->server('HTTP_REFERER'))->with('info', 'Hiển thị banner có id = ' . $request->id . ' thành công');
     }
-
-    public function readingFile()
-    {
-        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
-
-        $options = [
-            'version'     => 'latest',
-            'region'      => 'ap-southeast-1',
-            'credentials' => $credentials
-        ];
-        $s3 = new S3Client($options);
-        $bucket = config('aws.s3.bucket');
-        try {
-            $result = $s3->getObject([
-                'Bucket' => $bucket,
-                'Key' => 'Banner/AT140131. Trần Đức Lương. Giấy XNTT.png',
-                'SaveAs' => public_path('images/banner/AT140131. Trần Đức Lương. Giấy XNTT.png')
-            ]);
-        } catch (AwsException $e) {
-            dd($e->getMessage());
-        }
-    }
 }
