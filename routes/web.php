@@ -55,6 +55,7 @@ Route::group(['prefix' => 'content'], function (){
     Route::post('banner/edit/{id}',[BannerController::class, 'postEdit'])->name('banner.banner_edit');
     Route::delete('banner',[BannerController::class, 'delete'])->name('banner.delete');
     Route::patch('banner',[BannerController::class, 'restore'])->name('banner.restore');
+
 });
 
 Route::group(['prefix' => 'order'], function (){
@@ -66,6 +67,12 @@ Route::group(['prefix' => 'order'], function (){
 
 Route::group(['prefix' => 'user'], function (){
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('user/create',[UserController::class, 'getCreate'])->name('user.get_create');
+    Route::post('user/create',[UserController::class, 'postCreate'])->name('user.user_create');
+    Route::get('user/edit/{id}',[UserController::class, 'getEdit'])->name('user.get_edit');
+    Route::post('user/edit/{id}',[UserController::class, 'postEdit'])->name('user.user_edit');
+    Route::delete('user',[UserController::class, 'delete'])->name('user.delete');
+    Route::patch('user',[UserController::class, 'restore'])->name('user.restore');
 });
 
 
