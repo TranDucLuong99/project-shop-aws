@@ -19,8 +19,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.login');
+Route::get('/' , function () {
+    return view('welcome');
 })->name('home');
 
 Route::group(['prefix' => 'content'], function (){
