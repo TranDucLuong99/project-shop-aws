@@ -8,6 +8,7 @@ use Aws\Exception\AwsException;
 use Aws\S3\Exception\S3Exception;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 

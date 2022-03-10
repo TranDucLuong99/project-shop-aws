@@ -15,9 +15,9 @@ class APIController extends Controller
     /**
      * @var bool
      */
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
+    // public function __construct() {
+    //     $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    // }
 
     /**
      * @param Request $request
@@ -26,7 +26,7 @@ class APIController extends Controller
     public function ShowLoginForm()
     {
         if (Auth::check()) {
-            return Redirect::route('category.index');
+            return Redirect::route('home');
         } else {
             return view('layout.login');
         }
@@ -44,8 +44,8 @@ class APIController extends Controller
         if (! $token = auth()->attempt($validator->validated())) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-        return $this->createNewToken($token);
+        $token = $this->createNewToken($token);
+        return Redirect::route('home');
     }
 
     /**
@@ -115,6 +115,7 @@ class APIController extends Controller
     }
 
     public function changePassWord(Request $request) {
+        dd(Auth::check());
         $validator = Validator::make($request->all(), [
             'old_password' => 'required|string|min:6',
             'new_password' => 'required|string|confirmed|min:6',
