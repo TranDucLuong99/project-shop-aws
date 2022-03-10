@@ -26,28 +26,11 @@ class APIController extends Controller
     public function ShowLoginForm()
     {
         if (Auth::check()) {
-            return Redirect::route('home');
+            return Redirect::route('category.index');
         } else {
             return view('layout.login');
         }
     }
-    // public function login(Request $request)
-    // {
-    //     $input = $request->only('email', 'password');
-    //     $token = null;
-
-    //     if (!$token = JWTAuth::attempt($input)) {
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => 'Invalid Email or Password',
-    //         ], 401);
-    //     }
-
-    //     return response()->json([
-    //         'status' => true,
-    //         'token' => $token,
-    //     ]);
-    // }
     public function login(Request $request){
     	$validator = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -92,26 +75,6 @@ class APIController extends Controller
             'user' => $user
         ], 201);
     }
-    // public function logout(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'token' => 'required'
-    //     ]);
-
-    //     try {
-    //         JWTAuth::invalidate($request->token);
-
-    //         return response()->json([
-    //             'status' => true,
-    //             'message' => 'User logged out successfully'
-    //         ]);
-    //     } catch (JWTException $exception) {
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => 'Sorry, the user cannot be logged out'
-    //         ], 500);
-    //     }
-    // }
     public function logout() {
         auth()->logout();
         return response()->json(['message' => 'User successfully signed out']);
