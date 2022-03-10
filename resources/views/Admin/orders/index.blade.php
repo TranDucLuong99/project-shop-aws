@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                  <div class="col-sm-6">
-                        <a href="" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Xuất excel</a>
+                        <a href="{{route('order.export)}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Xuất excel</a>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            @if (count($errors) > 0)
+                @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $err)
                         {{$err}} <br>
@@ -61,7 +61,7 @@
 
                 @if (isset($info))
                     <div class="alert alert-danger"> {{$info}}</div>
-            @endif
+                @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="data" class="table table-bordered table-striped">

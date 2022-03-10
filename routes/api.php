@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IAMController;
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,4 @@ Route::group([
     Route::post('/change-pass', [APIController::class, 'changePassWord']);
     Route::get('/show-login', [APIController::class, 'ShowLoginForm']);
 });
+Route::get('/export', [OrderController::class, 'exportOrder'])->name('order.export');

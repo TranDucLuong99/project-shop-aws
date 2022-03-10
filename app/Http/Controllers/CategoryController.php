@@ -70,22 +70,24 @@ class CategoryController extends Controller
             'credentials' => $credentials
         ];
         $s3 = new S3Client($options);
-        $file = $request->file('image');
-        $fileName = $file->getClientOriginalName();
-        $filepath = public_path('images/category/');
+        if($request->file('image')){
+            $file = $request->file('image');
+            $fileName = $file->getClientOriginalName();
+            $filepath = public_path('images/category/');
 
-        $extension = explode('.', $fileName);
-        $extension = strtolower(end($extension));
+            $extension = explode('.', $fileName);
+            $extension = strtolower(end($extension));
 
-        $key = md5(uniqid());
-        $tmp_file_name = "{$key}.{$extension}";
-        $file->move($filepath, $tmp_file_name);
-        $s3->putObject([
-                'Bucket' => config('aws.s3.bucket'),
-                'Key'    => "Category/{$fileName}",
-                'Body'   => fopen(public_path() . '/images/category/' . $tmp_file_name, 'rb'),
-        ]);
-        $category->image       = "$tmp_file_name";
+            $key = md5(uniqid());
+            $tmp_file_name = "{$key}.{$extension}";
+            $file->move($filepath, $tmp_file_name);
+            $s3->putObject([
+                    'Bucket' => config('aws.s3.bucket'),
+                    'Key'    => "Category/{$fileName}",
+                    'Body'   => fopen(public_path() . '/images/category/' . $tmp_file_name, 'rb'),
+            ]);
+            $category->image       = "$tmp_file_name";
+        }
         $category->name        = $request->name;
         $category->title       = $request->title;
         $category->description = $request->description;

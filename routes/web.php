@@ -70,7 +70,7 @@ Route::group(['middleware' => ['api'], 'prefix' => 'admin'], function ($router) 
         Route::get('/order', [OrderController::class, 'index'])->name('order.index');
         Route::get('order/{id}',[OrderController::class, 'detail'])->name('order.detail');
         Route::get('print/{id}',[OrderController::class, 'printOrder'])->name('order.print');
-        // Route::get('/order-report', [OrderController::class, 'index'])->name('order.index');
+        Route::get('/export', [OrderController::class, 'exportOrder'])->name('order.export');
     });
 
     Route::group(['prefix' => 'user'], function (){
