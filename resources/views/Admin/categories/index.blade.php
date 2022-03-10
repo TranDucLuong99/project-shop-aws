@@ -178,7 +178,7 @@
   $(function () {
     $("#data").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["excel", "print"]
+    //   "buttons": ["excel", "print"]
     }).buttons().container().appendTo('#data_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
