@@ -77,6 +77,9 @@
                                 <th scope="col" style="text-align: center">Loại sản phẩm</th>
                                 <th scope="col" style="text-align: center">Ảnh sản phẩm</th>
                                 <th scope="col" style="text-align: center">Số lượng </th>
+                                <th scope="col" style="text-align: center">Đơn giá </th>
+                                <th scope="col" style="text-align: center">Giảm giá </th>
+                                <th scope="col" style="text-align: center">Thành tiền </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,6 +95,9 @@
                                     @endif
                                 </td>
                                 <td style="text-align: center">{{$products->pivot->quantity}}</td>
+                                <td style="text-align: center">{{$products->new_price}}</td>
+                                <td style="text-align: center">{{$products->discount * $products->pivot->quantity}}</td>
+                                <td style="text-align: center">{{$products->new_price * $products->pivot->quantity - $products->discount}} VNĐ</td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                  <div class="col-sm-6">
-                        <a href="{{route('order.export)}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Xuất excel</a>
+                        <a href="{{ route('order.export) }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Xuất excel</a>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
