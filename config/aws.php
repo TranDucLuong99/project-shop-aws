@@ -1,13 +1,13 @@
 <?php
 return [
     's3' => [
-        'region' => 'ap-southeast-1',
-        'key' => 'AKIAQBHIIQLPAPO56SK7', //Access key
-        'secret' => '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', //Secret key
-        'bucket' => 'luongleo'
+        'region' => env('AWS_DEFAULT_REGION'),
+        'key'    => env('AWS_ACCESS_KEY_ID'), //Access key
+        'secret' => env('AWS_SECRET_ACCESS_KEY'), //Secret key
+        'bucket' => env('AWS_BUCKET'),
     ],
     'root_user' => [
-        'key' => 'AKIAQBHIIQLPAPO56SK7',
-        'secret' => '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'
+        'key'    => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
     ],
 ];
