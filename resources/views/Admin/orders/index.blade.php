@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                  <div class="col-sm-6">
-                        <a href="{{ route('order.export) }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Xuất excel</a>
+                        <a href="{{route('order.export')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Xuất excel</a>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-                @if (count($errors) > 0)
+                @if(count($errors) > 0)
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $err)
                         {{$err}} <br>
@@ -55,13 +55,14 @@
                 </div>
                 @endif
 
-                @if (session('info'))
+                @if(session('info'))
                     <div class="alert alert-success"> {{session('info')}}</div>
                 @endif
 
                 @if (isset($info))
                     <div class="alert alert-danger"> {{$info}}</div>
                 @endif
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="data" class="table table-bordered table-striped">
@@ -94,6 +95,7 @@
                         <td style="text-align: center">
                             {{Carbon\Carbon::parse($key->updated_at)->format('Y/m/d')}}
                         </td>
+
                         <td style="text-align: center">
                             <a href="{{route('order.detail',$key->id)}}" class="btn btn-default">
                                 <i class="fas fa-edit"></i>
@@ -120,26 +122,26 @@
 @endsection('content')
 @push('js')
   <!-- jQuery -->
-<script src="{{asset('template/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('template/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
-<script src="{{asset('template/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('template/plugins/jszip/jszip.min.js')}}"></script>
-<script src="{{asset('template/plugins/pdfmake/pdfmake.min.js')}}"></script>
-<script src="{{asset('template/plugins/pdfmake/vfs_fonts.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('template/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+<script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('template/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{ asset('template/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{ asset('template/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{ asset('template/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('template/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{asset('template/dist/js/adminlte.min.js')}}"></script>
+<script src="{{ asset('template/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('template/dist/js/demo.js')}}"></script>
+<script src="{{ asset('template/dist/js/demo.js') }}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
