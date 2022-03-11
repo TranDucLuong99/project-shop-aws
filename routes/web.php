@@ -15,7 +15,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('welcome');
 
 Route::group(['prefix' => 'admin'], function (){
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
