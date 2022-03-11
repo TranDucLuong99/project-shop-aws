@@ -25,29 +25,31 @@ class UserController extends Controller
     public function postCreate(Request $request)
     {
         $user = New User();
-        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
-        $options = [
-            'version'     => 'latest',
-            'region'      => 'ap-southeast-1',
-            'credentials' => $credentials
-        ];
-        $s3 = new S3Client($options);
-        $file = $request->file('image');
-        $fileName = $file->getClientOriginalName();
-        $filepath = public_path('images/user/');
+        if($request->file('image')){
+            $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+            $options = [
+                'version'     => 'latest',
+                'region'      => 'ap-southeast-1',
+                'credentials' => $credentials
+            ];
+            $s3 = new S3Client($options);
+            $file = $request->file('image');
+            $fileName = $file->getClientOriginalName();
+            $filepath = public_path('images/user/');
 
-        $extension = explode('.', $fileName);
-        $extension = strtolower(end($extension));
+            $extension = explode('.', $fileName);
+            $extension = strtolower(end($extension));
 
-        $key = md5(uniqid());
-        $tmp_file_name = "{$key}.{$extension}";
-        $file->move($filepath, $tmp_file_name);
-        $s3->putObject([
-                'Bucket' => config('aws.s3.bucket'),
-                'Key'    => "User/{$fileName}",
-                'Body'   => fopen(public_path() . '/images/user/' . $tmp_file_name, 'rb'),
-        ]);
-        $user->image    = "$tmp_file_name";
+            $key = md5(uniqid());
+            $tmp_file_name = "{$key}.{$extension}";
+            $file->move($filepath, $tmp_file_name);
+            $s3->putObject([
+                    'Bucket' => config('aws.s3.bucket'),
+                    'Key'    => "User/{$fileName}",
+                    'Body'   => fopen(public_path() . '/images/user/' . $tmp_file_name, 'rb'),
+            ]);
+            $user->image    = "$tmp_file_name";
+        }
         $user->name     = $request->name;
         $user->email    = $request->email;
         $user->address  = $request->address;

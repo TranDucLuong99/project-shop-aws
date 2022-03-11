@@ -63,14 +63,14 @@ class CategoryController extends Controller
     public function postEdit(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
-        $options = [
-            'version'     => 'latest',
-            'region'      => 'ap-southeast-1',
-            'credentials' => $credentials
-        ];
-        $s3 = new S3Client($options);
         if($request->file('image')){
+            $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+            $options = [
+                'version'     => 'latest',
+                'region'      => 'ap-southeast-1',
+                'credentials' => $credentials
+            ];
+            $s3 = new S3Client($options);
             $file = $request->file('image');
             $fileName = $file->getClientOriginalName();
             $filepath = public_path('images/category/');
