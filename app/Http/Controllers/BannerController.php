@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
-    //
     public function index(Request $request){
         $banners = Banner::withTrashed()->orderBy('updated_at', 'DESC')->get();
         return $banners->isEmpty() ?

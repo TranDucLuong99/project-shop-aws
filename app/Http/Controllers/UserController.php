@@ -5,6 +5,7 @@ use Aws\S3\S3Client;
 use Aws\Credentials\Credentials;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -52,7 +53,7 @@ class UserController extends Controller
         $user->address  = $request->address;
         $user->role     = $request->role;
         $user->phone    = $request->phone;
-        $user->password = bcrypt($request->password);
+        $user->password = Hash::make($request->password);
         $user->save();
         return redirect(route('user.index'))->with('info', 'Tạo mới user thành công với id = ' . $user->id);
 
@@ -93,11 +94,9 @@ class UserController extends Controller
             $user->image    = "$tmp_file_name";
         }
         $user->name     = $request->name;
-        $user->email    = $request->email;
         $user->address  = $request->address;
         $user->role     = $request->role;
         $user->phone    = $request->phone;
-        $user->password = bcrypt($request->password);
         $user->update();
         return redirect(route('user.index'))->with('info', 'Sửa user có id = ' . $request->id . ' thành công');
 

@@ -24,13 +24,10 @@ Route::get('/' , function () {
     if (Auth::check()) {
         return view('welcome');
     } else {
-        return view('layout.login');
+        return redirect()->route('home');
     }
-})->name('login');
-Route::get('/home' , function () {
-        return view('welcome');
-})->name('home');
-Route::group(['middleware' => ['api'], 'prefix' => 'admin'], function ($router) {
+});
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router) {
     Route::group(['prefix' => 'content'], function (){
         Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
         Route::get('category/create',[CategoryController::class, 'getCreate'])->name('category.get_create');
@@ -83,3 +80,7 @@ Route::group(['middleware' => ['api'], 'prefix' => 'admin'], function ($router) 
         Route::patch('user',[UserController::class, 'restore'])->name('user.restore');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

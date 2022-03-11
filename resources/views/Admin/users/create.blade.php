@@ -46,11 +46,15 @@
                                 <label><strong>Tên người dùng <span style="color: red">(*)</span> </strong></label>
                                 <input type="text" name="name" class="form-control" value="{{$is_create ? '' : $user->name}}" placeholder="Vui lòng nhập tên người dùng">
                             </div>
+                            @if ($is_create)
                             <div class="form-group">
                                     <label for="email">Email<span style="color: red">(*)</span></label>
                                     <input type="email" class="form-control" placeholder="Vui lòng nhập email" name="email" value="{{$is_create ? '' : $user->email}}">
                             </div>
+                            @else
+                            @endif
                             <div class="form-group">
+                            @if ($is_create)
                                 <label>Password</label>
                                 <div class="input-group" id="show_hide_password">
                                     <input class="form-control" type="password">
@@ -58,6 +62,8 @@
                                         <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
+                            @else
+                            @endif
                             </div>
                             <div class="form-group">
                                 <label for="role">Role<span style="color: red">(*)</span></label>
