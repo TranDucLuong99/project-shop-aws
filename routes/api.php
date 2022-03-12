@@ -26,7 +26,7 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
-    Route::post('/login', [APIController::class, 'login'])->name('admin.login');
+    Route::post('/login', [APIController::class, 'login']);
     Route::post('/register', [APIController::class, 'register']);
     Route::post('/logout', [APIController::class, 'logout']);
     Route::post('/refresh', [APIController::class, 'refresh']);
@@ -34,4 +34,3 @@ Route::group([
     Route::post('/change-pass', [APIController::class, 'changePassWord']);
     Route::get('/show-login', [APIController::class, 'ShowLoginForm']);
 });
-Route::get('/export', [OrderController::class, 'exportOrder'])->name('order.export');
