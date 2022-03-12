@@ -57,7 +57,7 @@
                             @if ($is_create)
                                 <label>Password</label>
                                 <div class="input-group" id="show_hide_password">
-                                    <input class="form-control" type="password">
+                                    <input class="form-control" type="password" name="password">
                                     <div class="input-group-addon">
                                         <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     </div>
