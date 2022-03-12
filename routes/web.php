@@ -20,14 +20,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/' , function () {
-    if (Auth::check()) {
-        return view('welcome');
-    } else {
-        return redirect()->route('home');
-    }
-});
+// Route::get('/' , function () {
+//     if (Auth::check()) {
+//         return view('welcome');
+//     } else {
+//         return redirect()->route('home');
+//     }
+// });
+Auth::routes(['register' => false]);
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router) {
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::group(['prefix' => 'content'], function (){
         Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
         Route::get('category/create',[CategoryController::class, 'getCreate'])->name('category.get_create');
@@ -81,6 +83,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
     });
 });
 
-// Auth::routes();
-Auth::routes(['register' => false]);
-Route::get('/home', 'HomeController@index')->name('home');
+
