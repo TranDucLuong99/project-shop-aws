@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\UserRequest;
 use Aws\S3\S3Client;
 use Aws\Credentials\Credentials;
 use App\User;
@@ -22,7 +24,7 @@ class UserController extends Controller
         return view('Admin.users.create');
     }
 
-    public function postCreate(Request $request)
+    public function postCreate(UserRequest $request)
     {
         $user = New User();
         if($request->file('image')){
