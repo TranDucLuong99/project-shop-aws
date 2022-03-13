@@ -228,6 +228,6 @@
         Khách hàng <br> <?php echo $orders->fullname ?> </div>
     <div class="footer-right"> Hà Nội, Ngày {{now()->format('d')}} Tháng {{now()->format('m')}} Năm {{now()->format('Y')}}<br/>
         Nhân viên <br>
-    Leo Leo</div>
+    {{ Auth::user()->name }}</div>
 </div>
 </body>
