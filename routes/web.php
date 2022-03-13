@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,8 +31,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
         Route::post('category/edit/{id}',[CategoryController::class, 'postEdit'])->name('category.category_edit');
         Route::delete('category',[CategoryController::class, 'delete'])->name('category.delete');
         Route::patch('category',[CategoryController::class, 'restore'])->name('category.restore');
-
-
 
         Route::get('/product', [ProductController::class, 'index'])->name('product.index');
         Route::get('product/create',[ProductController::class, 'getCreate'])->name('product.get_create');
@@ -81,4 +80,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
     });
 });
 
-
+Route::post('upload-secret', [UploadFileController::class, 'uploadFileEncrypt']);
+Route::get('decrytion-file', [UploadFileController::class, 'decryptFile']);
