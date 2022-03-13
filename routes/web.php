@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
         Route::delete('category',[CategoryController::class, 'delete'])->name('category.delete');
         Route::patch('category',[CategoryController::class, 'restore'])->name('category.restore');
 
+
+
         Route::get('/product', [ProductController::class, 'index'])->name('product.index');
         Route::get('product/create',[ProductController::class, 'getCreate'])->name('product.get_create');
         Route::post('product/create',[ProductController::class, 'postCreate'])->name('product.product_create');
@@ -60,18 +62,22 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
     Route::group(['prefix' => 'order'], function (){
         Route::get('/order', [OrderController::class, 'index'])->name('order.index');
         Route::get('order/{id}',[OrderController::class, 'detail'])->name('order.detail');
-        Route::get('print/{id}',[OrderController::class, 'printOrder'])->name('order.print');
-        Route::get('/export', [OrderController::class, 'exportOrder'])->name('order.export');
+        Route::group(['middleware' => 'checkAdmin'], function (){
+            Route::get('print/{id}',[OrderController::class, 'printOrder'])->name('order.print');
+            Route::get('/export', [OrderController::class, 'exportOrder'])->name('order.export');
+        });
     });
 
     Route::group(['prefix' => 'user'], function (){
         Route::get('/user', [UserController::class, 'index'])->name('user.index');
-        Route::get('user/create',[UserController::class, 'getCreate'])->name('user.get_create');
-        Route::post('user/create',[UserController::class, 'postCreate'])->name('user.user_create');
-        Route::get('user/edit/{id}',[UserController::class, 'getEdit'])->name('user.get_edit');
-        Route::post('user/edit/{id}',[UserController::class, 'postEdit'])->name('user.user_edit');
-        Route::delete('user',[UserController::class, 'delete'])->name('user.delete');
-        Route::patch('user',[UserController::class, 'restore'])->name('user.restore');
+         Route::group(['middleware' => 'checkAdmin'], function (){
+            Route::get('user/create',[UserController::class, 'getCreate'])->name('user.get_create');
+            Route::post('user/create',[UserController::class, 'postCreate'])->name('user.user_create');
+            Route::get('user/edit/{id}',[UserController::class, 'getEdit'])->name('user.get_edit');
+            Route::post('user/edit/{id}',[UserController::class, 'postEdit'])->name('user.user_edit');
+            Route::delete('user',[UserController::class, 'delete'])->name('user.delete');
+            Route::patch('user',[UserController::class, 'restore'])->name('user.restore');
+        });
     });
 });
 
