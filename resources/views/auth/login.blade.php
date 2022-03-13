@@ -1,12 +1,37 @@
 @extends('layouts.app')
+<style>
+.typewriter h4 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
 
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+</style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="text-align: center; font-weight: bold;">{{ __('CHÀO MỪNG BẠN ĐÃ ĐẾN VỚI LEO LEO SHOP!') }}
-
+                <div class="card-header" style="text-align: center; font-weight: bold;">
+                    <div class="typewriter">
+                        <h4>CHÀO MỪNG BẠN ĐÃ ĐẾN VỚI LEO LEO SHOP!</h4>
+                    </div>
                 </div>
 
                 <div class="card-body">
