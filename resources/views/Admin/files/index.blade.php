@@ -87,7 +87,7 @@
 
                         <td style="text-align: center">
                             <a href="{{route('file.decrypt',$key->id)}}" class="btn btn-default">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-eye"></i>
                             </a>
                         </td>
                     </tr>

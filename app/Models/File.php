@@ -9,6 +9,6 @@ class File extends Model
     //
     protected $table = 'files';
     protected $fillable = [
-        'id', 'name', 'file', 'type'
+        'id', 'name', 'file'
     ];
 }
