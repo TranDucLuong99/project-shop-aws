@@ -63,6 +63,15 @@
                     </a>
                 </li>
             </ul>
+
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('file.index')}}" class="nav-link {{ request()->is('admin/file/*') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>File</p>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
 

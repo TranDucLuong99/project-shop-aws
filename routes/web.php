@@ -67,6 +67,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
         });
     });
 
+    Route::group(['prefix' => 'file'], function (){
+        Route::get('/file', [UploadFileController::class, 'index'])->name('file.index');
+        Route::get('file/upload',[UploadFileController::class, 'getUpload'])->name('file.get_upload');
+        Route::post('upload-secret', [UploadFileController::class, 'uploadFileEncrypt'])->name('file.upload');
+        Route::get('decrytion-file/{id}', [UploadFileController::class, 'decryptFile'])->name('file.decrypt');
+    });
+
     Route::group(['prefix' => 'user'], function (){
         Route::get('/user', [UserController::class, 'index'])->name('user.index');
          Route::group(['middleware' => 'checkAdmin'], function (){
@@ -80,5 +87,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
     });
 });
 
-Route::post('upload-secret', [UploadFileController::class, 'uploadFileEncrypt']);
-Route::get('decrytion-file', [UploadFileController::class, 'decryptFile']);
+
