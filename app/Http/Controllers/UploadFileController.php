@@ -131,6 +131,6 @@ class UploadFileController extends Controller
         } catch (AwsException $e) {
             dd($e->getMessage());
         }
-        return redirect(route('file.index'))->with('info', 'Đọc file thành công với id = ' . $fileData->id);
+        return redirect(route('file.index'))->with('info', 'Đọc file thành công với id = ' . $fileData->id . 'ban');
     }
 }
