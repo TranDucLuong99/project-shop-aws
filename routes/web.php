@@ -107,7 +107,7 @@ Route::group(['prefix' => 'Shop'], function () {
     Route::get('/sign-up',[PageController::class, 'signUp'])->name('shop.home.signUp');
     Route::get('/product',[ShopProductController::class, 'index'])->name('shop.product.index');
     Route::get('/product/1',[ShopProductController::class, 'detail'])->name('shop.product.detail');
-    Route::get('/story',[ShopStoryController::class, 'index'])->name('shop.story.index');
+    Route::get('/about',[ShopStoryController::class, 'index'])->name('shop.story.index');
     Route::get('/faq',[ShopFAQController::class, 'index'])->name('shop.faq.index');
     Route::get('/contact',[ShopContactController::class, 'index'])->name('shop.contact.index');
 });

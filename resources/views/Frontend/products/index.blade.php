@@ -38,13 +38,15 @@
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="{{ route('shop.product.detail') }}" class="product-title-link">Tree pot</a>
+                                            <a href="{{ route('shop.product.detail') }}" class="product-title-link">Chậu cây</a>
                                         </h5>
 
-                                        <p class="product-p">Original package design from house</p>
+                                        <p class="product-p">Sản phẩm có thể được trang trí trong nhà</p>
                                     </div>
 
-                                    <small class="product-price text-muted ms-auto">$25</small>
+                                    <div class="product-price text-muted ms-auto">
+                                        <span style="text-decoration-line: line-through;"> 45$</span> / <span style="color: red">25$</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

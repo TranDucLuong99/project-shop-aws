@@ -13,7 +13,7 @@
 
                                     <p class="lead text-white mt-lg-3 mb-lg-5">Little fashion template comes with total 8 HTML pages provided by Tooplate website.</p>
 
-                                    <a href="about.html" class="btn custom-btn">Learn more about us</a>
+                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Learn more about us</a>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
 
                                     <p class="lead text-white mt-lg-3 mb-lg-5">Please share this Little Fashion template to your friends. Thank you for supporting us.</p>
 
-                                    <a href="product.html" class="btn custom-btn">Explore products</a>
+                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Explore products</a>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
 
                                     <p class="lead text-white mt-lg-3 mb-lg-5">Tooplate is one of the best HTML CSS template websites for everyone.</p>
 
-                                    <a href="contact.html" class="btn custom-btn">Work with us</a>
+                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Work with us</a>
                                 </div>
                             </div>
                         </div>
@@ -300,7 +300,7 @@
                         </div>
 
                         <div class="col-12 text-center">
-                            <a href="products.html" class="view-all">View All Products</a>
+                            <a href="{{ route('shop.product.index') }}" class="view-all">View All Products</a>
                         </div>
 
                     </div>

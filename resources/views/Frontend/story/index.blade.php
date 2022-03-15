@@ -6,8 +6,8 @@
 
             <div class="col-lg-6 col-12 header-info">
                 <h1>
-                    <span class="d-block text-primary">Company</span>
-                    <span class="d-block text-dark">Fashion</span>
+                    <span class="d-block text-primary">Công ty</span>
+                    <span class="d-block text-dark">Thời trang</span>
                 </h1>
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="row">
 
             <div class="col-12">
-                <h2 class="mb-5">Meet our <span>team</span></h2>
+                <h2 class="mb-5">Đội ngũ <span>của chúng tôi</span></h2>
             </div>
 
             <div class="col-lg-4 mb-4 col-12">
@@ -28,8 +28,8 @@
                     <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Don</h5>
-                        <strong class="text-muted">Product, VP</strong>
+                        <h5 class="mb-0">Tran Duc Luong</h5>
+                        <strong class="text-muted">Ceo</strong>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn custom-modal-btn" data-bs-toggle="modal" data-bs-target="#don">
@@ -42,11 +42,11 @@
 
             <div class="col-lg-4 mb-4 col-12">
                 <div class="team-thumb d-flex align-items-center">
-                    <img src="{{asset('frontend/images/people/portrait-british-woman.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
+                    <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Kelly</h5>
-                        <strong class="text-muted">Marketing</strong>
+                        <h5 class="mb-0">Tran Tien Dung</h5>
+                        <strong class="text-muted">Co Founder</strong>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn custom-modal-btn" data-bs-toggle="modal" data-bs-target="#kelly">
@@ -58,10 +58,10 @@
 
             <div class="col-lg-4 mb-lg-0 mb-4 col-12">
                 <div class="team-thumb d-flex align-items-center">
-                    <img src="{{asset('frontend/images/people/beautiful-woman-face-portrait-brown-background.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
+                    <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Marie</h5>
+                        <h5 class="mb-0">Tran Quang Vinh</h5>
                         <strong class="text-muted">Founder</strong>
 
                         <!-- Button trigger modal -->
@@ -81,11 +81,11 @@
         <div class="row">
 
             <div class="col-lg-9 mx-auto col-11">
-                <h2 class="text-center">Customer love, <br> <span>Little</span> Fashion</h2>
+                <h2 class="text-center">Góp ý <br> <span>của khách hàng</span> cho LeoLeo Shop</h2>
 
                 <div class="slick-testimonial">
                     <div class="slick-testimonial-caption">
-                        <p class="lead">Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet</p>
+                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, không có chỉ thừa, mặc siêu siêu mát</p>
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="slick-testimonial-caption">
-                        <p class="lead">Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet</p>
+                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, không có chỉ thừa, mặc siêu siêu mát</p>
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/beautiful-woman-face-portrait-brown-background.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="slick-testimonial-caption">
-                        <p class="lead">Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet</p>
+                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, không có chỉ thừa, mặc siêu siêu mát</p>
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/portrait-british-woman.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="slick-testimonial-caption">
-                        <p class="lead">Over three years in business, We’ve had the chance to work on a variety of projects, with companies Lorem ipsum dolor sit amet</p>
+                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, không có chỉ thừa, mặc siêu siêu mát</p>
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">

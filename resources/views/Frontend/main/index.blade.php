@@ -49,7 +49,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('Shop/story') ? 'active' : '' }}" href="{{ route('shop.story.index') }}">Story</a>
+                                <a class="nav-link {{ request()->is('Shop/about') ? 'active' : '' }}" href="{{ route('shop.story.index') }}">About</a>
                             </li>
 
                             <li class="nav-item">
@@ -86,14 +86,14 @@
                         <h4 class="text-white mb-3"><a href="{{ route('shop.home.index') }}">LeoLeo</a> Shop</h4>
                         <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>LeoLeo Shop</strong></p>
                         <br>
-                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">LeoLeo</a></p>
+                        <p class="copyright-text">Designed by <a href="https://www.facebook.com/Gnoul.tran99/" target="_blank">LeoLeo</a></p>
                     </div>
 
                     <div class="col-lg-5 col-8">
-                        <h5 class="text-white mb-3">Sitemap</h5>
+                        <h5 class="text-white mb-3">Danh mục</h5>
 
                         <ul class="footer-menu d-flex flex-wrap">
-                            <li class="footer-menu-item"><a href="{{ route('shop.story.index') }}" class="footer-menu-link">Story</a></li>
+                            <li class="footer-menu-item"><a href="{{ route('shop.story.index') }}" class="footer-menu-link">About</a></li>
 
                             <li class="footer-menu-item"><a href="{{ route('shop.product.index') }}" class="footer-menu-link">Products</a></li>
 
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="col-lg-3 col-4">
-                        <h5 class="text-white mb-3">Social</h5>
+                        <h5 class="text-white mb-3">Mạng xã hội</h5>
 
                         <ul class="social-icon">
 
