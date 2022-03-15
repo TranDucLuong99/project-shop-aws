@@ -6,6 +6,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Shop\PageController;
+use App\Http\Controllers\Shop\ShopContactController;
+use App\Http\Controllers\Shop\ShopFAQController;
+use App\Http\Controllers\Shop\ShopProductController;
+use App\Http\Controllers\Shop\ShopStoryController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -87,4 +92,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
     });
 });
 
-
+Route::group(['prefix' => 'Shop'], function () {
+    Route::get('/home',[PageController::class, 'index'])->name('shop.home.index');
+    Route::get('/sign-in',[PageController::class, 'signIn'])->name('shop.home.signIn');
+    Route::get('/sign-up',[PageController::class, 'signUp'])->name('shop.home.signUp');
+    Route::get('/product',[ShopProductController::class, 'index'])->name('shop.product.index');
+    Route::get('/product/1',[ShopProductController::class, 'detail'])->name('shop.product.detail');
+    Route::get('/story',[ShopStoryController::class, 'index'])->name('shop.story.index');
+    Route::get('/faq',[ShopFAQController::class, 'index'])->name('shop.faq.index');
+    Route::get('/contact',[ShopContactController::class, 'index'])->name('shop.contact.index');
+});
