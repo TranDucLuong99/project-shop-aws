@@ -19,12 +19,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                  <div class="col-sm-6">
-                        <a href="{{route('banner.get_create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Thêm banner</a>
+                        <a href="{{route('faq.get_create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Thêm faq</a>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="home">Home</a></li>
-                        <li class="breadcrumb-item active">Banners</li>
+                        <li class="breadcrumb-item active">Faqs</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -40,7 +40,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <h3 class="card-title">Quản lý banner</h3>
+                        <h3 class="card-title">Quản lý FAQ</h3>
                     </div>
                     <div class="col-sm-12 col-md-2"></div>
                     <div class="col-sm-12 col-md-4"></div>
@@ -68,25 +68,19 @@
                 <thead>
                     <tr>
                         <th style="text-align: center">ID</th>
-                        <th style="text-align: center">Tên</th>
-                        <th style="text-align: center">Title</th>
-                        <th style="text-align: center">Ảnh</th>
+                        <th style="text-align: center">Câu hỏi</th>
+                        <th style="text-align: center">Câu trả lời</th>
                         <th style="text-align: center">Trạng thái</th>
                         <th style="text-align: center">Ngày tạo</th>
                         <th style="text-align: center">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($banners as $id => $key)
+                    @foreach($faqs as $id => $key)
                     <tr>
                         <td style="text-align: center">{{$id + 1}}</td>
                         <td>{{$key->name}}</td>
-                        <td>{{$key->title}}</td>
-                        <td>
-                            @if($key->image)
-                                <img style="max-width:150px; height: 50px;" src="{{asset('images/banner/'.$key->image)}}">
-                            @endif
-                        </td>
+                        <td>{{$key->description}}</td>
                         <td style="text-align: center">
                         {!!($key->is_active == 1) ?
                             '<span class="badge  badge-success">Active</span>':
@@ -98,11 +92,11 @@
                             {{Carbon\Carbon::parse($key->updated_at)->format('Y/m/d')}}
                         </td>
                         <td style="text-align: center">
-                        <a href="{{route('banner.get_edit',$key->id)}}" class="btn btn-default">
+                        <a href="{{route('faq.get_edit',$key->id)}}" class="btn btn-default">
                                                             <i class="fas fa-edit"></i></a>
                         @if (empty($key->deleted_at))
                             <button class="btn btn-danger btn-flat" title="Delete"
-                                    data-banner_id="{{$key->id}}"
+                                    data-faq_id="{{$key->id}}"
                                     data-toggle="modal" data-target="#delete">
                                 <i class="fas fa-times">
                                 </i>
@@ -113,7 +107,7 @@
                         @if (!empty($key->deleted_at))
                             <button type="button" class="btn btn-primary btn-flat"
                                     title="Restore"
-                                    data-banner_id="{{$key->id}}"
+                                    data-faq_id="{{$key->id}}"
                                     data-toggle="modal" data-target="#restore">
                                     <i class="fas fa-redo-alt"></i>
                             </button>
@@ -140,8 +134,8 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-        @include('Admin.banners.delete_modal')
-        @include('Admin.banners.restore_modal')
+        @include('Admin.faqs.delete_modal')
+        @include('Admin.faqs.restore_modal')
       </div>
       <!-- /.container-fluid -->
     </section>

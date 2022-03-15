@@ -3,6 +3,7 @@
 use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
@@ -60,6 +61,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
         Route::post('banner/edit/{id}',[BannerController::class, 'postEdit'])->name('banner.banner_edit');
         Route::delete('banner',[BannerController::class, 'delete'])->name('banner.delete');
         Route::patch('banner',[BannerController::class, 'restore'])->name('banner.restore');
+
+        Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+        Route::get('faq/create',[FaqController::class, 'getCreate'])->name('faq.get_create');
+        Route::post('faq/create',[FaqController::class, 'postCreate'])->name('faq.faq_create');
+        Route::get('faq/edit/{id}',[FaqController::class, 'getEdit'])->name('faq.get_edit');
+        Route::post('faq/edit/{id}',[FaqController::class, 'postEdit'])->name('faq.faq_edit');
+        Route::delete('faq',[FaqController::class, 'delete'])->name('faq.delete');
+        Route::patch('faq',[FaqController::class, 'restore'])->name('faq.restore');
 
     });
 

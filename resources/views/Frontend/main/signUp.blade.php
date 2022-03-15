@@ -7,7 +7,7 @@
 
             <div class="col-lg-8 mx-auto col-12">
 
-                <h1 class="hero-title text-center mb-5">Sign Up</h1>
+                <h1 class="hero-title text-center mb-5">Đăng ký</h1>
 
                 <!-- <div class="social-login d-flex flex-column w-50 m-auto">
 
@@ -33,7 +33,7 @@
                             <div class="form-floating">
                                 <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
 
-                                <label for="email">Email address</label>
+                                <label for="email">Email</label>
                             </div>
 
                             <div class="form-floating my-4">
@@ -51,10 +51,10 @@
                             </div>
 
                             <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
-                                Create account
+                                Đăng ký
                             </button>
 
-                            <p class="text-center">Already have an account? Please <a href="sign-in.html">Sign In</a></p>
+                            <p class="text-center">Bạn đã có tài khoản? <a href="sign-in.html">Đăng nhập</a></p>
 
                         </form>
                     </div>

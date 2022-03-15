@@ -7,8 +7,8 @@
 
                         <div class="col-lg-10 col-12">
                             <h1>
-                                <span class="d-block text-primary">Choose your</span>
-                                <span class="d-block text-dark">favorite stuffs</span>
+                                <span class="d-block text-primary">Chọn sản phẩm</span>
+                                <span class="d-block text-dark">yêu thích</span>
                             </h1>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                     <div class="row">
 
                         <div class="col-12">
-                            <h2 class="mb-5">New Arrivals</h2>
+                            <h2 class="mb-5">Sản phẩm mới</h2>
                         </div>
 
                         <div class="col-lg-4 col-12 mb-3">
@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="col-12">
-                            <h2 class="mb-5">Popular</h2>
+                            <h2 class="mb-5">Sản phẩm phổ biến</h2>
                         </div>
 
                         <div class="col-lg-4 col-12 mb-3">

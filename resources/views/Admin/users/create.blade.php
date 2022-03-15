@@ -11,10 +11,14 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
-                        <!-- <li class="breadcrumb-item"><a href="home">user</a></li>
-                        <li class="breadcrumb-item active">Thêm mới</li> -->
+                        <li class="breadcrumb-item"><a href="home">User</a></li>
+                        @if ($is_create)
+                        <li class="breadcrumb-item active">Thêm mới</li>
+                        @else
+                        <li class="breadcrumb-item active">Sửa</li>
+                        @endif
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

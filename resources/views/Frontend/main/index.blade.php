@@ -32,7 +32,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('shop.home.index') }}">
                         <strong><span>LeoLeo</span> Shop</strong>
                     </a>
 
@@ -68,7 +68,7 @@
                         <div class="d-none d-lg-block">
                             <a href="{{ route('shop.home.signIn') }}" class="bi-person custom-icon me-3"></a>
 
-                            <a href="product-detail.html" class="bi-bag custom-icon"></a>
+                            <a href="{{ route('shop.product.detail') }}" class="bi-bag custom-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -83,25 +83,23 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-10 me-auto mb-4">
-                        <h4 class="text-white mb-3"><a href="index.html">LeoLeo</a> Shop</h4>
+                        <h4 class="text-white mb-3"><a href="{{ route('shop.home.index') }}">LeoLeo</a> Shop</h4>
                         <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>LeoLeo Shop</strong></p>
                         <br>
-                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">LeoLeo</a></p>
                     </div>
 
                     <div class="col-lg-5 col-8">
                         <h5 class="text-white mb-3">Sitemap</h5>
 
                         <ul class="footer-menu d-flex flex-wrap">
-                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">Story</a></li>
+                            <li class="footer-menu-item"><a href="{{ route('shop.story.index') }}" class="footer-menu-link">Story</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+                            <li class="footer-menu-item"><a href="{{ route('shop.product.index') }}" class="footer-menu-link">Products</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+                            <li class="footer-menu-item"><a href="{{ route('shop.faq.index') }}" class="footer-menu-link">FAQs</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                            <li class="footer-menu-item"><a href="{{ route('shop.contact.index') }}" class="footer-menu-link">Contact</a></li>
                         </ul>
                     </div>
 

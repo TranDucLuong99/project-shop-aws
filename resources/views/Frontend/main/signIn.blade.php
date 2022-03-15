@@ -6,7 +6,7 @@
 
             <div class="col-lg-8 mx-auto col-12">
 
-                <h1 class="hero-title text-center mb-5">Sign In</h1>
+                <h1 class="hero-title text-center mb-5">Đăng nhập</h1>
 
                 <div class="row">
                     <div class="col-lg-8 col-11 mx-auto">
@@ -14,7 +14,7 @@
 
                             <div class="form-floating mb-4 p-0">
                                 <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
-                                <label for="email">Email address</label>
+                                <label for="email">Email</label>
                             </div>
 
                             <div class="form-floating p-0">
@@ -26,7 +26,7 @@
                                 Sign in
                             </button>
 
-                            <p class="text-center">Don’t have an account? <a href="{{ route('shop.home.signUp') }}">Create One</a></p>
+                            <p class="text-center">Bạn chưa có tài khoản? <a href="{{ route('shop.home.signUp') }}"> Đăng ký</a></p>
 
                         </form>
                     </div>

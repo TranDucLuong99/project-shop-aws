@@ -1,53 +1,6 @@
 
 @extends('Frontend.main.index')
 @section('content')
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <a class="navbar-brand" href="index.html">
-            <strong><span>Little</span> Fashion</strong>
-        </a>
-
-        <div class="d-lg-none">
-            <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
-
-            <a href="product-detail.html" class="bi-bag custom-icon"></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">Story</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="products.html">Products</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="faq.html">FAQs</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-
-            <div class="d-none d-lg-block">
-                <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
-
-                <a href="product-detail.html" class="bi-bag custom-icon"></a>
-            </div>
-        </div>
-    </div>
-</nav>
 
 <header class="site-header section-padding d-flex justify-content-center align-items-center">
     <div class="container">
@@ -55,8 +8,8 @@
 
             <div class="col-lg-10 col-12">
                 <h1>
-                    <span class="d-block text-primary">Your favorite questions</span>
-                    <span class="d-block text-dark">and our answers to them</span>
+                    <span class="d-block text-primary">Câu hỏi phổ biến</span>
+                    <span class="d-block text-dark">& câu trả lời của chúng tôi</span>
                 </h1>
             </div>
         </div>
@@ -68,7 +21,7 @@
         <div class="row">
 
             <div class="col-lg-8 col-12">
-                <h2>General Info.</h2>
+                <h2>Thông tin chung</h2>
 
                 <div class="accordion" id="accordionGeneral">
                     <div class="accordion-item">
@@ -120,7 +73,7 @@
 
                 </div>
 
-                <h2 class="mt-5">About <span>our products</span></h2>
+                <h2 class="mt-5">Sản phẩm <span>của chúng tôi</span></h2>
 
                 <div class="accordion" id="accordionProduct">
                     <div class="accordion-item">
