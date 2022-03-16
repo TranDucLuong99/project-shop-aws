@@ -87,7 +87,7 @@
                                 <input type="file" name="image" class="form-control-file" id="image">
                                 @else
                                 <input type="file" name="image" class="form-control-file" id="image">
-                                <img style="max-width:150px; height: 50px;" src="{{asset('images/products/'.$product->image)}}">
+                                <img style="max-width:150px; height: 50px;" src="{{asset('images/product/'.$key->image)}}">
                                 @endif
                             </div>
                             <div class="form-group">

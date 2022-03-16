@@ -28,7 +28,7 @@
                     <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Tran Duc Luong</h5>
+                        <h5 class="mb-0">Gnoul Tran</h5>
                         <strong class="text-muted">Ceo</strong>
 
                         <!-- Button trigger modal -->
@@ -45,7 +45,7 @@
                     <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Tran Tien Dung</h5>
+                        <h5 class="mb-0">Jack Nguyen</h5>
                         <strong class="text-muted">Co Founder</strong>
 
                         <!-- Button trigger modal -->
@@ -61,7 +61,7 @@
                     <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Tran Quang Vinh</h5>
+                        <h5 class="mb-0">Andy Pham</h5>
                         <strong class="text-muted">Founder</strong>
 
                         <!-- Button trigger modal -->
