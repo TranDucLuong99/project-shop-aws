@@ -231,8 +231,6 @@
 
                                 <div class="product-top d-flex">
                                     <span class="product-alert me-auto">- {{$key->discount}} Vnđ</span>
-
-                                    <!-- <a href="#" class="bi-heart-fill product-icon"></a> -->
                                 </div>
 
                                 <div class="product-info d-flex">
