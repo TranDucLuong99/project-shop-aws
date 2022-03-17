@@ -68,7 +68,7 @@
                         <div class="d-none d-lg-block">
                             <a href="{{ route('shop.home.signIn') }}" class="bi-person custom-icon me-3"></a>
 
-                            <a href="{{ route('shop.product.detail') }}" class="bi-bag custom-icon"></a>
+                            <a href="" class="bi-bag custom-icon"></a>
                         </div>
                     </div>
                 </div>

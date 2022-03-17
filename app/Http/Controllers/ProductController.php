@@ -97,8 +97,8 @@ class ProductController extends Controller
                 'Key'    => "Product/{$fileName}",
                 'Body'   => fopen(public_path() . '/images/product/' . $tmp_file_name, 'rb'),
             ]);
+            $product->image       = "$tmp_file_name";
         }
-        $product->image       = "$tmp_file_name";
         $product->name        = $request->name;
         $product->price       = $request->price;
         $product->category_id = $request->category_id;

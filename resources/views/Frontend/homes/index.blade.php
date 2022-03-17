@@ -225,7 +225,7 @@
                         @if($key->category_id == 25)
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="{{route('shop.product.detail', $key->id)}}">
+                                <a href="{{ route('shop.product.detail', $key->id)  }}">
                                     <img src="{{asset('images/product/'.$key->image)}}" class="img-fluid product-image" alt="">
                                 </a>
 

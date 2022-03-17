@@ -87,12 +87,12 @@
                                 <input type="file" name="image" class="form-control-file" id="image">
                                 @else
                                 <input type="file" name="image" class="form-control-file" id="image">
-                                <img style="max-width:150px; height: 50px;" src="{{asset('images/product/'.$key->image)}}">
+                                <img style="max-width:150px; height: 50px;" src="{{asset('images/product/'.$product->image)}}">
                                 @endif
                             </div>
                             <div class="form-group">
                                 <label><strong>Mô tả sản phẩm</strong></label>
-                                <textarea name="description">{{$is_create ? '' : $product->description}}</textarea>
+                                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="5">{{$is_create ? '' : $product->description}}</textarea>
                             </div>
                             <div class="form-group text-center">
                                 <input type="submit" class="btn btn-success" name="submit" value="Save">
@@ -113,8 +113,8 @@
 
 @endsection('content')
 @push('js')
-<script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'description' );
-</script>
+</script> -->
 @endpush

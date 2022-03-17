@@ -21,16 +21,16 @@
 
                         <div class="col-lg-6 col-12">
                             <div class="product-thumb">
-                                <img src="{{ asset('frontend/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
+                                <img src="{{asset('images/product/'.$product->image)}}" class="img-fluid product-image" alt="">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h2 class="product-title mb-0">Tree pot</h2>
+                                    <h2 class="product-title mb-0">{{$product->name}}</h2>
 
-                                    <p class="product-p">Original package design from house</p>
+                                    <p class="product-p">{{$product->title}}</p>
                                 </div>
 
                                 <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
@@ -38,15 +38,15 @@
 
                             <div class="product-description">
 
-                                <strong class="d-block mt-4 mb-2">Description</strong>
+                                <strong class="d-block mt-4 mb-2">Mô tả</strong>
 
-                                <p class="lead mb-5">Over three years in business, We’ve had the chance to work on a variety of projects, with companies</p>
+                                <p class="lead mb-5">{{$product->description}}</p>
                             </div>
 
                             <div class="product-cart-thumb row">
                                 <div class="col-lg-6 col-12">
 
-                                    <select class="form-select cart-form-select" id="inputGroupSelect01">
+                                    <select class="form-select cart-form-select" id="inputGroupSelect01" name="quantity">
                                         <option selected>Quantity</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -78,85 +78,34 @@
                     <div class="row">
 
                         <div class="col-12">
-                            <h3 class="mb-5">You might also like</h3>
+                            <h3 class="mb-5">Có thể bạn sẽ thích</h3>
                         </div>
 
+                        @foreach($products as $key)
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
+                                <a href="{{ route('shop.product.detail', $key->id)  }}">
+                                    <img src="{{asset('images/product/'.$key->image)}}" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">New arrival</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                    <span class="product-alert me-auto">- {{$key->discount}} Vnđ</span>
                                 </div>
 
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Tree pot</a>
+                                            <a href="{{route('shop.product.detail', $key->id)}}" class="product-title-link">{{$key->name}}</a>
                                         </h5>
 
-                                        <p class="product-p">Original package design from house</p>
+                                        <p class="product-p">{{$key->title}}</p>
                                     </div>
 
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                                    <span style="text-decoration-line: line-through;">{{$key->price}} Vnđ</span> / <span style="color: red">{{$key->new_price}} Vnđ</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-12 mb-3">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <span class="product-alert">Low Price</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Fashion set</a>
-                                        </h5>
-
-                                        <p class="product-p">Costume package</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-12">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
-                                        </h5>
-
-                                        <p class="product-p">Nature made another world</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </section>
