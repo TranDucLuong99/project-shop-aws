@@ -47,17 +47,19 @@
 
                 <div class="accordion" id="accordionProduct">
                     @foreach($faqs as $key => $faq)
-                    @if($faq->type == 2)
+                    @if($faq->type == 1)
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionProductOne" aria-expanded="true" aria-controls="accordionProductOne">
-                            {{$faq->name}}
+                            {{ $faq->name}}
                             </button>
                         </h2>
 
                         <div id="accordionProductOne" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionProduct">
                             <div class="accordion-body">
-                                <p class="large-paragraph">{{$faq->description}}</p>
+                                <p class="large-paragraph">
+                                    {{ $faq->description}}
+                                </p>
                             </div>
                         </div>
                     </div>

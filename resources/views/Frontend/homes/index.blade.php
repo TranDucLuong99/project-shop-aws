@@ -62,21 +62,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h2 class="mb-5">Get started with <span>Little</span> Fashion</h2>
+                            <h2 class="mb-5">Bắt đầu với <span>LeoLeo</span> Shop</h2>
                         </div>
 
                         <div class="col-lg-2 col-12 mt-auto mb-auto">
                             <ul class="nav nav-pills mb-5 mx-auto justify-content-center align-items-center" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Introduction</button>
+                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Giới thiệu</button>
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-youtube-tab" data-bs-toggle="pill" data-bs-target="#pills-youtube" type="button" role="tab" aria-controls="pills-youtube" aria-selected="true">How we work?</button>
+                                    <button class="nav-link" id="pills-youtube-tab" data-bs-toggle="pill" data-bs-target="#pills-youtube" type="button" role="tab" aria-controls="pills-youtube" aria-selected="true">Sản phẩm</button>
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-skill-tab" data-bs-toggle="pill" data-bs-target="#pills-skill" type="button" role="tab" aria-controls="pills-skill" aria-selected="false">Capabilites</button>
+                                    <button class="nav-link" id="pills-skill-tab" data-bs-toggle="pill" data-bs-target="#pills-skill" type="button" role="tab" aria-controls="pills-skill" aria-selected="false">Doanh số</button>
                                 </li>
                             </ul>
                         </div>
@@ -92,15 +92,14 @@
 
                                         <div class="col-lg-5 col-12">
                                             <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
-                                                <h4 class="mb-3">Good <span>Design</span> <br>Ideas for <span>your</span> fashion</h4>
+                                                <h4 class="mb-3">Cung cấp các <span>sản phẩm</span> thiết yếu cho<br> <span> cuộc sống</span> của bạn</h4>
 
-                                                <p>Little Fashion templates comes with <a href="sign-in.html">sign in</a> / <a href="sign-up.html">sign up</a> pages, product listing / product detail, about, FAQs, and contact page.</p>
+                                                <p>LeoLeo Shop là công ty cung cấp các sản phẩm liên quan tới thời trang cũng như trang trí</p>
 
-                                                <p>Since this HTML template is based on Boostrap 5 CSS library, you can feel free to add more components as you need.</p>
-
+                                                <p>Kể từ khi được thành lập, LeoLeo trở thành một trong số những công ty thời trang chuyên phân phối các sản phẩm thời trang cao cấp, lịch lãm và sang trọng của nhiều thương hiệu lớn tại Việt Nam.</p>
                                                 <div class="mt-2 mt-lg-auto">
-                                                    <a href="about.html" class="custom-link mb-2">
-                                                        Learn more about us
+                                                    <a href="{{ route('shop.story.index') }}" class="custom-link mb-2">
+                                                        Nhiều hơn về chúng tôi
                                                         <i class="bi-arrow-right ms-2"></i>
                                                     </a>
                                                 </div>
@@ -120,15 +119,15 @@
 
                                         <div class="col-lg-5 col-12">
                                             <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
-                                                <h4 class="mb-3">Life at Studio</h4>
+                                                <h4 class="mb-3">Sản phẩm của chúng tôi</h4>
 
-                                                <p>Over three years in business, We’ve had the chance to work on a variety of projects, with companies</p>
+                                                <p>Hơn ba năm kinh doanh, Chúng tôi đã cung cấp ra thị trường hàng ngàn sản phẩm khác nhau liên quan đến lĩnh vực thời trang</p>
 
-                                                <p>Custom work is branding, web design, UI/UX design</p>
+                                                <p>Sản phẩm của của LeoLeo luôn luôn nhận được các phản hồi tích cực của khách hàng</p>
 
                                                 <div class="mt-2 mt-lg-auto">
                                                     <a href="contact.html" class="custom-link mb-2">
-                                                        Work with us
+                                                        Làm việc với chúng tôi
                                                         <i class="bi-arrow-right ms-2"></i>
                                                     </a>
                                                 </div>
@@ -145,26 +144,26 @@
 
                                         <div class="col-lg-5 col-12">
                                             <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
-                                                <h4 class="mb-3">What can help you?</h4>
+                                                <h4 class="mb-3">Những thành tựu mà LeoLeo đạt được</h4>
 
-                                                <p>Over three years in business, We’ve had the chance on projects</p>
+                                                <p>Phục vụ cho hàng triệu khách hàng nhu cầu ăn mặc trong cuộc sống hàng ngày</p>
 
                                                 <div class="skill-thumb mt-3">
 
-                                                    <strong>Branding</strong>
-                                                        <span class="float-end">90%</span>
+                                                    <strong>Doanh thu</strong>
+                                                        <span class="float-end">600 tỷ</span>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                                                             </div>
 
-                                                    <strong>Design & Stragety</strong>
-                                                        <span class="float-end">70%</span>
+                                                    <strong>Lượng khách hàng mới</strong>
+                                                        <span class="float-end">2,5 triệu</span>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                                                             </div>
 
-                                                    <strong>Online Platform</strong>
-                                                        <span class="float-end">80%</span>
+                                                    <strong>Lợi nhuận</strong>
+                                                        <span class="float-end">450 tỷ</span>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                                                             </div>
@@ -173,7 +172,7 @@
 
                                                 <div class="mt-2 mt-lg-auto">
                                                     <a href="products.html" class="custom-link mb-2">
-                                                        Explore products
+                                                        Khám phá sản phẩm
                                                         <i class="bi-arrow-right ms-2"></i>
                                                     </a>
                                                 </div>
@@ -200,12 +199,12 @@
                         <div class="col-lg-6 col-12">
                             <div class="px-5 py-5 py-lg-0">
 
-                                <h2 class="mb-4"><span>Retail</span> shop owners</h2>
+                                <h2 class="mb-4"><span>Chia sẻ</span> của đối tác</h2>
 
-                                <p class="lead mb-4">Credits go to Unsplash and FreePik websites for images used in this Little Fashion by Tooplate.</p>
+                                <p class="lead mb-4">Chúng tôi thực sự rất hài lòng về những sản phẩm mà LeoLeo cung cấp.</p>
 
-                                <a href="products.html" class="custom-link">
-                                    Explore Products
+                                <a href="{{ route('shop.product.index') }}" class="custom-link">
+                                    Sản phẩm
                                     <i class="bi-arrow-right ms-2"></i>
                                 </a>
                             </div>
@@ -220,87 +219,39 @@
                     <div class="row">
 
                         <div class="col-12 text-center">
-                            <h2 class="mb-5">Featured Products</h2>
+                            <h2 class="mb-5">Sản phẩm phổ biến</h2>
                         </div>
-
+                        @foreach($products as $key)
+                        @if($key->category_id == 25)
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
+                                <a href="{{route('shop.product.detail', $key->id)}}">
+                                    <img src="{{asset('images/product/'.$key->image)}}" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">New Arrival</span>
+                                    <span class="product-alert me-auto">- {{$key->discount}} Vnđ</span>
 
-                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                    <!-- <a href="#" class="bi-heart-fill product-icon"></a> -->
                                 </div>
 
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Tree pot</a>
+                                            <a href="{{route('shop.product.detail', $key->id)}}" class="product-title-link">{{$key->name}}</a>
                                         </h5>
 
-                                        <p class="product-p">Original package design from house</p>
+                                        <p class="product-p">{{$key->title}}</p>
                                     </div>
 
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                                    <span style="text-decoration-line: line-through;">{{$key->price}} Vnđ</span> / <span style="color: red">{{$key->new_price}} Vnđ</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-12 mb-3">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <span class="product-alert">Low Price</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Fashion Set</a>
-                                        </h5>
-
-                                        <p class="product-p">Costume Package</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-12">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
-                                        </h5>
-
-                                        <p class="product-p">Nature made another world</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endif
+                        @endforeach
                         <div class="col-12 text-center">
-                            <a href="{{ route('shop.product.index') }}" class="view-all">View All Products</a>
+                            <a href="{{ route('shop.product.index') }}" class="view-all">Tất cả sản phẩm</a>
                         </div>
 
                     </div>

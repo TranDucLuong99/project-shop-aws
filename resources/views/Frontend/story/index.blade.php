@@ -85,7 +85,7 @@
 
                 <div class="slick-testimonial">
                     <div class="slick-testimonial-caption">
-                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, không có chỉ thừa, mặc siêu siêu mát</p>
+                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, đội ngũ chăm sóc khách hàng tận tình</p>
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
