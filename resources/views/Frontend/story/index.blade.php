@@ -85,12 +85,12 @@
 
                 <div class="slick-testimonial">
                     <div class="slick-testimonial-caption">
-                        <p class="lead">Sản phẩm có chất lượng tuyệt vời, độ hoàn thiện cực tốt, đội ngũ chăm sóc khách hàng tận tình</p>
+                        <p class="lead">Chúng tôi sử dụng những chất liệu cao cấp nhất để sử dụng cho sản phẩm của mình</p>
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
 
-                            <span>George, <strong class="text-muted">Digital Art Fashion</strong></span>
+                            <span>Luong Leo, <strong class="text-muted">Nhà thiết kế</strong></span>
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/beautiful-woman-face-portrait-brown-background.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
 
-                            <span>Sandar, <strong class="text-muted">Zoom Fashion Idea</strong></span>
+                            <span>Mei, <strong class="text-muted">Phòng ý tưởng</strong></span>
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/portrait-british-woman.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
 
-                            <span>Marie, <strong class="text-muted">Art Fashion Design</strong></span>
+                            <span>May, <strong class="text-muted">Chuyên viên chất liệu</strong></span>
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
-                            <span>Catherine, <strong class="text-muted">Dress Fashion</strong></span>
+                            <span>Cathy, <strong class="text-muted">Chuyên viên marketing</strong></span>
                         </div>
                     </div>
                 </div>

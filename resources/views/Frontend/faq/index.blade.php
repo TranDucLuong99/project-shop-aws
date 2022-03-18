@@ -19,10 +19,8 @@
 <section class="faq section-padding">
     <div class="container">
         <div class="row">
-
             <div class="col-lg-8 col-12">
                 <h2>Thông tin chung</h2>
-
                 <div class="accordion" id="accordionGeneral">
                     @foreach($faqs as $key => $faq)
                     @if($faq->type == 1)
@@ -68,7 +66,6 @@
                 </div>
 
             </div>
-
         </div>
     </div>
 </section>

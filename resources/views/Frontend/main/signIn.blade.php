@@ -23,7 +23,7 @@
                             </div>
 
                             <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
-                                Sign in
+                                Đăng nhập
                             </button>
 
                             <p class="text-center">Bạn chưa có tài khoản? <a href="{{ route('shop.home.signUp') }}"> Đăng ký</a></p>
