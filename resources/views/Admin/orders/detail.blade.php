@@ -97,7 +97,7 @@
                                 <td style="text-align: center">{{$products->pivot->quantity}}</td>
                                 <td style="text-align: center">{{$products->new_price}}</td>
                                 <td style="text-align: center">{{$products->discount * $products->pivot->quantity}}</td>
-                                <td style="text-align: center">{{$products->new_price * $products->pivot->quantity - $products->discount}} VNĐ</td>
+                                <td style="text-align: center">{{$products->new_price * $products->pivot->quantity - $products->discount}} $</td>
                             </tr>
                             @endforeach
                         </tbody>

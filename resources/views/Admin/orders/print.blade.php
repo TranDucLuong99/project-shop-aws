@@ -210,18 +210,18 @@
                 $price_total = $values->new_price * $values->pivot->quantity;
                 $total += $price_total;
                 ?>
-                <?php echo number_format($price_total, 0, '.', '.') ?> vnđ
+                <?php echo number_format($price_total, 0, '.', '.') ?> $
             </td>
         </tr>
         <?php endforeach;?>
         <tr>
             <td colspan="3">Giao hàng tiêu chuẩn</td>
-            <td style="text-align: center">35,000 vnđ</td>
+            <td style="text-align: center">5 $</td>
             <td colspan="2" style="text-align: right">Thanh toán khi nhận hàng</td>
         </tr>
         <tr>
             <td colspan="5" class="tong" style="text-align: left">Tổng cộng</td>
-            <td style="text-align: right; font-weight: bold"> <?php echo number_format($total + 35000, 0, '.', '.') ?> vnđ</td>
+            <td style="text-align: right; font-weight: bold"> <?php echo number_format($total + 5, 0, '.', '.') ?> $</td>
         </tr>
     </table>
     <div class="footer-left"><br/>
