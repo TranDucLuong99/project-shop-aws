@@ -29,7 +29,6 @@
                             <div class="product-info d-flex">
                                 <div>
                                     <h2 class="product-title mb-0">{{$product->name}}</h2>
-
                                     <p class="product-p">{{$product->title}}</p>
                                 </div>
 
