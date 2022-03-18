@@ -31,7 +31,6 @@
                                     <h2 class="product-title mb-0">{{$product->name}}</h2>
                                     <p class="product-p">{{$product->title}}</p>
                                 </div>
-
                                 <small class="product-price text-muted ms-auto mt-auto mb-5">{{$product->new_price}} $</small>
                             </div>
 
