@@ -7,8 +7,8 @@
 
                         <div class="col-lg-10 col-12">
                             <h1>
-                                <span class="d-block text-primary">We provide you</span>
-                                <span class="d-block text-dark">Fashionable Stuffs</span>
+                                <span class="d-block text-primary">Chúng tôi cung cấp</span>
+                                <span class="d-block text-dark">Những sản phẩm chất lượng nhất</span>
                             </h1>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                                     <p class="product-p">{{$product->title}}</p>
                                 </div>
 
-                                <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                                <small class="product-price text-muted ms-auto mt-auto mb-5">{{$product->new_price}} $</small>
                             </div>
 
                             <div class="product-description">
@@ -47,7 +47,7 @@
                                 <div class="col-lg-6 col-12">
 
                                     <select class="form-select cart-form-select" id="inputGroupSelect01" name="quantity">
-                                        <option selected>Quantity</option>
+                                        <option selected>Số lượng</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -57,13 +57,11 @@
                                 </div>
 
                                 <div class="col-lg-6 col-12 mt-4 mt-lg-0">
-                                    <button type="submit" class="btn custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal">Add to Cart</button>
+                                    <button type="submit" class="btn custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal">Thêm vào giỏ hàng</button>
                                 </div>
 
                                 <p>
-                                    <a href="#" class="product-additional-link">Details</a>
-
-                                    <a href="#" class="product-additional-link">Delivery and Payment</a>
+                                    <a href="#" class="product-additional-link">Giỏ hàng</a>
                                 </p>
                             </div>
 
@@ -89,7 +87,7 @@
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">- {{$key->discount}} Vnđ</span>
+                                    <span class="product-alert me-auto">- {{$key->discount}} $</span>
                                 </div>
 
                                 <div class="product-info d-flex">
@@ -101,7 +99,7 @@
                                         <p class="product-p">{{$key->title}}</p>
                                     </div>
 
-                                    <span style="text-decoration-line: line-through;">{{$key->price}} Vnđ</span> / <span style="color: red">{{$key->new_price}} Vnđ</span>
+                                    <span style="text-decoration-line: line-through;">{{$key->price}} $</span> / <span style="color: red">{{$key->new_price}} $</span>
                                 </div>
                             </div>
                         </div>

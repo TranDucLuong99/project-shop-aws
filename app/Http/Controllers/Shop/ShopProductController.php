@@ -10,7 +10,8 @@ class ShopProductController extends Controller
 {
     //
     public function index(){
-        return view('Frontend.products.index');
+        $products = Product::get();
+        return view('Frontend.products.index', compact('products'));
     }
 
     public function detail($id){

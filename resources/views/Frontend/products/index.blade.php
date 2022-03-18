@@ -22,162 +22,68 @@
                         <div class="col-12">
                             <h2 class="mb-5">Sản phẩm mới</h2>
                         </div>
-
+                        @foreach($products as $key)
+                        @if($key->category_id == 25)
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
+                                <a href="{{route('shop.product.detail', $key->id)}}">
+                                    <img src="{{asset('images/product/'.$key->image)}}" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">New Arrival</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                    <span class="product-alert me-auto">- {{$key->discount}} $</span>
                                 </div>
 
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="{{ route('shop.product.detail') }}" class="product-title-link">Chậu cây</a>
+                                            <a href="{{route('shop.product.detail', $key->id)}}" class="product-title-link">{{$key->name}}</a>
                                         </h5>
 
-                                        <p class="product-p">Sản phẩm có thể được trang trí trong nhà</p>
+                                        <p class="product-p">{{$key->title}}</p>
                                     </div>
 
                                     <div class="product-price text-muted ms-auto">
-                                        <span style="text-decoration-line: line-through;"> 45$</span> / <span style="color: red">25$</span>
+                                        <span style="text-decoration-line: line-through;">{{$key->price}} $</span> / <span style="color: red">{{$key->new_price}} $</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-12 mb-3">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <span class="product-alert">Discounted Price</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Fashion set</a>
-                                        </h5>
-
-                                        <p class="product-p">Costume package</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto">$35</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-12">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
-                                        </h5>
-
-                                        <p class="product-p">Nature made another world</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto">$45</small>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+                        @endforeach
 
                         <div class="col-12">
                             <h2 class="mb-5">Sản phẩm phổ biến</h2>
                         </div>
-
+                        @foreach($products as $key)
+                        @if($key->category_id == 22)
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/team-fredi-8HRKoay8VJE-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
+                                <a href="{{route('shop.product.detail', $key->id)}}">
+                                    <img src="{{asset('images/product/'.$key->image)}}" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert">Trending</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                    <span class="product-alert me-auto">- {{$key->discount}} $</span>
                                 </div>
 
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Package</a>
+                                            <a href="{{route('shop.product.detail', $key->id)}}" class="product-title-link">{{$key->name}}</a>
                                         </h5>
 
-                                        <p class="product-p">Original package design from house</p>
+                                        <p class="product-p">{{$key->title}}</p>
                                     </div>
 
-                                    <small class="product-price text-muted ms-auto">$50</small>
+                                    <div class="product-price text-muted ms-auto">
+                                        <span style="text-decoration-line: line-through;">{{$key->price}} $</span> / <span style="color: red">{{$key->new_price}} $</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-12 mb-3">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/quokkabottles-kFc1_G1GvKA-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Bottle</a>
-                                        </h5>
-
-                                        <p class="product-p">Package design</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto">$100</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-12 mb-3">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{{ asset('frontend/images/product/anis-m-WnVrO-DvxcE-unsplash.jpeg') }}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Medicine</a>
-                                        </h5>
-
-                                        <p class="product-p">Original design from house</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto">$200</small>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+                        @endforeach
 
                     </div>
                 </div>

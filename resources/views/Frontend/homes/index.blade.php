@@ -2,59 +2,26 @@
 @extends('Frontend.main.index')
 @section('content')
             <section class="slick-slideshow">
+
+                @foreach($banners as $key)
                 <div class="slick-custom">
-                    <img src="{{asset('frontend/images/slideshow/medium-shot-business-women-high-five.jpeg')}}" class="img-responsive"fluid" alt="">
+                    <img src="{{asset('images/banner/'.$key->image)}}" class="img-responsive"fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-10">
-                                    <h1 class="slick-title">Cool Fashion</h1>
+                                    <h1 class="slick-title">{{$key->name}}</h1>
 
-                                    <p class="lead text-white mt-lg-3 mb-lg-5">Little fashion template comes with total 8 HTML pages provided by Tooplate website.</p>
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">{{$key->title}}</p>
 
-                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Learn more about us</a>
+                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Nhiều hơn về chúng tôi</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="slick-custom">
-                    <img src="{{asset('frontend/images/slideshow/team-meeting-renewable-energy-project.jpeg') }}" class="img-fluid" alt="">
-
-                    <div class="slick-bottom">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6 col-10">
-                                    <h1 class="slick-title">New Design</h1>
-
-                                    <p class="lead text-white mt-lg-3 mb-lg-5">Please share this Little Fashion template to your friends. Thank you for supporting us.</p>
-
-                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Explore products</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slick-custom">
-                    <img src="{{ asset('frontend/images/slideshow/two-business-partners-working-together-office-computer.jpeg') }}"" class="img-fluid" alt="">
-
-                    <div class="slick-bottom">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6 col-10">
-                                    <h1 class="slick-title">Talk to us</h1>
-
-                                    <p class="lead text-white mt-lg-3 mb-lg-5">Tooplate is one of the best HTML CSS template websites for everyone.</p>
-
-                                    <a href="{{ route('shop.story.index') }}" class="btn custom-btn">Work with us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </section>
 
@@ -230,7 +197,7 @@
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">- {{$key->discount}} Vnđ</span>
+                                    <span class="product-alert me-auto">- {{$key->discount}} $</span>
                                 </div>
 
                                 <div class="product-info d-flex">
@@ -242,7 +209,7 @@
                                         <p class="product-p">{{$key->title}}</p>
                                     </div>
 
-                                    <span style="text-decoration-line: line-through;">{{$key->price}} Vnđ</span> / <span style="color: red">{{$key->new_price}} Vnđ</span>
+                                    <span style="text-decoration-line: line-through;">{{$key->price}} $</span> / <span style="color: red">{{$key->new_price}} $</span>
                                 </div>
                             </div>
                         </div>

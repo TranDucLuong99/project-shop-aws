@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class PageController extends Controller
     //
     public function index(){
         $products = Product::withTrashed()->orderBy('updated_at', 'DESC')->get();
-        return view('Frontend.homes.index', compact('products'));
+        $banners  = Banner::withTrashed()->get();
+        return view('Frontend.homes.index', compact('products','banners'));
     }
 
     public function signIn(){

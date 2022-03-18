@@ -53,7 +53,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('Shop/product') ? 'active' : '' }}" href="{{ route('shop.product.index') }}">Products</a>
+                                <a class="nav-link {{ request()->is('Shop/product/*') ? 'active' : '' }}" href="{{ route('shop.product.index') }}">Products</a>
                             </li>
 
                             <li class="nav-item">
