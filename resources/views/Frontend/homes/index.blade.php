@@ -186,7 +186,7 @@
                     <div class="row">
 
                         <div class="col-12 text-center">
-                            <h2 class="mb-5">Sản phẩm phổ biến</h2>
+                            <h2 class="mb-5">Sản phẩm nổi bật</h2>
                         </div>
                         @foreach($products as $key)
                         @if($key->category_id == 25)
