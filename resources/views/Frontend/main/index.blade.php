@@ -36,11 +36,11 @@
                         <strong><span>LeoLeo</span> Shop</strong>
                     </a>
 
-                    <div class="d-lg-none">
+                    <!-- <div class="d-lg-none">
                         <a href="{{ route('shop.home.signIn') }}" class="bi-person custom-icon me-3"></a>
 
-                        <a href="product-detail.html" class="bi-bag custom-icon"></a>
-                    </div>
+                        <a href="product-detail.html" class="bi-bag custom-icon">4</a>
+                    </div> -->
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
@@ -66,9 +66,9 @@
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <a href="{{ route('shop.home.signIn') }}" class="bi-person custom-icon me-3"></a>
+                            <a href="{{ route('shop.home.signIn') }}" class="bi-person custom-icon me-3"><span style="font-size: 16px"> Gnoul Trần</span></a>
 
-                            <a href="" class="bi-bag custom-icon"></a>
+                            <a href="{{ route('shop.product.checkout') }}" class="bi-bag custom-icon"><span style="font-size: 14px"> 4</span></a>
                         </div>
                     </div>
                 </div>

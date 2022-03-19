@@ -19,4 +19,8 @@ class ShopProductController extends Controller
         $products = Product::where('id', '!=', $id)->where('category_id', $product->category_id)->get();
         return view('Frontend.products.detail', compact('product', 'products'));
     }
+
+    public function checkout(){
+        return view('Frontend.products.checkout');
+    }
 }

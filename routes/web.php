@@ -105,8 +105,10 @@ Route::group(['prefix' => 'Shop'], function () {
     Route::get('/home',[PageController::class, 'index'])->name('shop.home.index');
     Route::get('/sign-in',[PageController::class, 'signIn'])->name('shop.home.signIn');
     Route::get('/sign-up',[PageController::class, 'signUp'])->name('shop.home.signUp');
+    Route::post('/sign-up',[PageController::class, 'signUpUp'])->name('shop.home.signUpUp');
     Route::get('/product',[ShopProductController::class, 'index'])->name('shop.product.index');
     Route::get('/product/{id}',[ShopProductController::class, 'detail'])->name('shop.product.detail');
+    Route::get('/checkout',[ShopProductController::class, 'checkout'])->name('shop.product.checkout');
     Route::get('/about',[ShopStoryController::class, 'index'])->name('shop.story.index');
     Route::get('/faq',[ShopFAQController::class, 'index'])->name('shop.faq.index');
     Route::get('/contact',[ShopContactController::class, 'index'])->name('shop.contact.index');
