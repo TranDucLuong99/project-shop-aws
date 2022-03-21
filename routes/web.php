@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Auth::routes(['register' => false]);
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router) {
+Route::group(['middleware' => ['auth', 'role'], 'prefix' => 'admin'], function ($router) {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::group(['prefix' => 'content'], function (){
         Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
