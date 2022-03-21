@@ -67,10 +67,12 @@
                         </ul>
 
                         <div class="d-none d-lg-block">
-
                             @if(Auth::check())
                                 <span style="font-size: 16px">{{Auth::user()->name}}</span>
-                                <a href="{{ route('shop.home.logout') }}" class=""> | Đăng xuất | </a>
+                                <a href="{{ route('shop.home.logout') }}" class=""> | Đăng xuất </a>
+                                @if(Auth::user()->role == 1 || Auth::user()->role == 2)
+                                    <a href="{{ route('category.index') }}" class="">| Vào Admin</a>
+                                @endif
                             @else
                                 <a href="{{ route('shop.home.signIn') }}" class="">Đăng Nhập </a>
                             @endif
