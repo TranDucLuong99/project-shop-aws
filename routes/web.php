@@ -105,6 +105,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ($router)
 Route::group(['prefix' => 'Shop'], function () {
     Route::get('/home',[PageController::class, 'index'])->name('shop.home.index');
     Route::get('/sign-in',[PageController::class, 'signIn'])->name('shop.home.signIn');
+    Route::post('/sign-in',[PageController::class, 'shopLogin'])->name('shop.home.shopLogin');
     Route::get('/sign-up',[PageController::class, 'signUp'])->name('shop.home.signUp');
     Route::post('/sign-up',[PageController::class, 'signUpUp'])->name('shop.home.signUpUp');
     Route::get('/product',[ShopProductController::class, 'index'])->name('shop.product.index');

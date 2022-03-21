@@ -3,14 +3,17 @@
 <section class="sign-in-form section-padding">
     <div class="container">
         <div class="row">
-
+            @if(Session::has('flag'))
+                <div class="alert alert-{{ Session::get('flag') }}"> {{ Session::get('message') }}</div>
+            @endif
             <div class="col-lg-8 mx-auto col-12">
 
                 <h1 class="hero-title text-center mb-5">Đăng nhập</h1>
 
                 <div class="row">
                     <div class="col-lg-8 col-11 mx-auto">
-                        <form role="form" method="post">
+                        <form role="form" action="{{ route('shop.home.shopLogin') }}" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                            @csrf
 
                             <div class="form-floating mb-4 p-0">
                                 <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>

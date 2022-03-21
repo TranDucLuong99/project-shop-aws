@@ -9,6 +9,8 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class CartController extends Controller
 {
     //
@@ -26,7 +28,7 @@ class CartController extends Controller
     public function saveCart(Request $req){
         if($req->session()->has('Cart')){
             $order = new Order();
-            $order->user_id         = 1;
+            $order->user_id         = Auth::user()->id;
             $order->fullname       = $req->fullname;
             $order->address        = $req->address;
             $order->phone          = $req->phone;

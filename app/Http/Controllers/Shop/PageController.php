@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Product;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
@@ -35,6 +36,29 @@ class PageController extends Controller
         $user->save();
         return redirect(route('shop.home.signIn'));
 
+    }
+
+    public function shopLogin(Request $request)
+    {
+        $this->validate($request,
+            [
+                'email'=>'required|email',
+                'password'=>'required',
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Email không đúng định dạng',
+                'password.required'=>'Vui lòng nhập password',
+            ]
+        );
+
+        $credentials = array('email'=>$request->email, 'password'=>$request->password);
+
+        if(Auth::attempt($credentials)){
+            return redirect()->back()->with(['flag'=>'success', 'message'=>'Đăng nhập thành công']);
+        }else{
+            return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập không thành công']);
+        }
     }
 
 }
