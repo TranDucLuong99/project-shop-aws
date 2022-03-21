@@ -67,14 +67,18 @@
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <a href="{{ route('shop.home.signIn') }}" class="bi-person custom-icon me-3">
-                                @if(Auth::check())
-                                    <span style="font-size: 16px">{{Auth::user()->name}}</span>
-                                @endif
-                            </a>
 
-                            <a href="{{ route('shop.product.checkout') }}" class="bi-bag custom-icon" id="change-item-cart">
-                            </a>
+                            @if(Auth::check())
+                                <span style="font-size: 16px">{{Auth::user()->name}}</span>
+                                <a href="{{ route('shop.home.logout') }}" class=""> | Đăng xuất | </a>
+                            @else
+                                <a href="{{ route('shop.home.signIn') }}" class="">Đăng Nhập </a>
+                            @endif
+
+                            @if(Auth::check())
+                                | <a href="{{ route('shop.product.checkout') }}" class="bi-bag custom-icon" id="change-item-cart"></a>
+                            @endif
+
                         </div>
                     </div>
                 </div>

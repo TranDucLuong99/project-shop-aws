@@ -121,7 +121,7 @@
 <script>
     function AddCart(id){
         $.ajax({
-            url: '/Add-Cart/'+id,
+            url: '/Shop/Add-Cart/'+id,
             type: 'GET',
         }).done(function(response){
             console.log('hihi', response);

@@ -61,4 +61,9 @@ class PageController extends Controller
         }
     }
 
+    public function shopLogout() {
+        Auth::logout();
+        return redirect()->route('shop.home.index');
+    }
+
 }
