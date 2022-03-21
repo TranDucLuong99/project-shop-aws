@@ -7,6 +7,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Shop\CartController;
 use App\Http\Controllers\Shop\PageController;
 use App\Http\Controllers\Shop\ShopContactController;
 use App\Http\Controllers\Shop\ShopFAQController;
@@ -113,3 +114,7 @@ Route::group(['prefix' => 'Shop'], function () {
     Route::get('/faq',[ShopFAQController::class, 'index'])->name('shop.faq.index');
     Route::get('/contact',[ShopContactController::class, 'index'])->name('shop.contact.index');
 });
+
+
+Route::get('/Add-Cart/{id}',[CartController::class, 'AddCart'])->name('addCart');
+Route::post('/save-cart',[CartController::class, 'SaveCart'])->name('saveCart');

@@ -2,7 +2,7 @@
 @section('content')
         <div class="container mt-4">
             <form class="needs-validation" name="frmthanhtoan" method="post"
-                action="#">
+                action="{{ route('saveCart')}}">
                 <input type="hidden" name="kh_tendangnhap" value="dnpcuong">
                 <div class="py-5 text-center">
                     <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
@@ -17,32 +17,33 @@
                             <span class="badge badge-secondary badge-pill">2</span>
                         </h4>
                         <ul class="list-group mb-3">
-                            <input type="hidden" name="sanphamgiohang[1][sp_ma]" value="2">
-                            <input type="hidden" name="sanphamgiohang[1][gia]" value="11800000.00">
-                            <input type="hidden" name="sanphamgiohang[1][soluong]" value="2">
+                            @if(Session::has('Cart') != null)
+                                @foreach(Session::get('Cart')->products as $item)
+                                <input type="hidden" name="productId" value="{{$item['productInfo']->id}}">
+                                <input type="hidden" name="productQuantity" value="{{$item['quantity']}}">
 
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    <h6 class="my-0">Apple Ipad 4 Wifi 16GB</h6>
-                                    <small class="text-muted">11800000.00 x 2</small>
-                                </div>
-                                <span class="text-muted">23600000</span>
-                            </li>
-                            <input type="hidden" name="sanphamgiohang[2][sp_ma]" value="4">
-                            <input type="hidden" name="sanphamgiohang[2][gia]" value="14990000.00">
-                            <input type="hidden" name="sanphamgiohang[2][soluong]" value="8">
-
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    <h6 class="my-0">Apple iPhone 5 16GB White</h6>
-                                    <small class="text-muted">14990000.00 x 8</small>
-                                </div>
-                                <span class="text-muted">119920000</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <span>Tổng thành tiền</span>
-                                <strong>143520000</strong>
-                            </li>
+                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                        <h6 class="my-0">{{$item['productInfo']->name}}</h6>
+                                        <small class="text-muted">{{$item['productInfo']->new_price}}$ x {{$item['quantity']}}</small>
+                                    </div>
+                                    <span class="text-muted">{{$item['price']}}$</span>
+                                </li>
+                                @endforeach
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <span>Tổng số lượng</span>
+                                    <strong> {{Session::get('Cart')->totalQuantity}}</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <span>Phí ship</span>
+                                    <strong>5$</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <span>Tổng thành tiền</span>
+                                    <strong> {{Session::get('Cart')->totalPrice + 5}}$</strong>
+                                    <input type="hidden" name="price_total" value="{{Session::get('Cart')->totalPrice + 5}}">
+                                </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="col-md-8 order-md-1">
@@ -68,12 +69,12 @@
                             <div class="col-md-12">
                                 <label for="kh_email">Email</label>
                                 <input type="text" class="form-control" name="email" id="kh_email"
-                                    value="" readonly="">
+                                    value="tranducluong8899@gmail.com" readonly="">
                             </div>
 
                             <div class="col-md-12">
                                 <label for="">Note</label>
-                                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                             </div>
                         </div>
 
@@ -81,12 +82,12 @@
 
                         <div class="d-block my-3">
                             <div class="custom-control custom-radio">
-                                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                <input id="httt-2" name="payment_status" type="radio" class="custom-control-input" required=""
                                     value="1">
                                 <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                <input id="httt-3" name="payment_status" type="radio" class="custom-control-input" required=""
                                     value="2">
                                 <label class="custom-control-label" for="httt-3">Ship COD</label>
                             </div>

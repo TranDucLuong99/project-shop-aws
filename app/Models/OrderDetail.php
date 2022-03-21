@@ -13,4 +13,5 @@ class OrderDetail extends Model
         'product_id',
         'quantity',
     ];
+    public $timestamps = false;
 }
