@@ -11,10 +11,14 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
-                        <!-- <li class="breadcrumb-item"><a href="home">Category</a></li>
-                        <li class="breadcrumb-item active">Thêm mới</li> -->
+                        <li class="breadcrumb-item"><a href="home">Category</a></li>
+                        @if ($is_create)
+                        <li class="breadcrumb-item active">Thêm mới</li>
+                        @else
+                        <li class="breadcrumb-item active">Sửa</li>
+                        @endif
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -29,9 +33,9 @@
           <div class="card">
                     <div class="card-header">
                     @if ($is_create)
-                        <h5><strong>Thêm mới category</strong></h5>
+                        <h5><strong>Thêm mới loại hàng</strong></h5>
                     @else
-                        <h5><strong>Sửa category có id = {{$category->id}}</strong></h5>
+                        <h5><strong>Sửa thông tin loại hàng có id = {{$category->id}}</strong></h5>
                     @endif
 
                     </div>
@@ -43,20 +47,25 @@
                         @endif
                             @csrf
                             <div class="form-group">
-                                <label><strong>Tên: </strong></label>
-                                <input type="text" name="name" class="form-control" value="{{$is_create ? '' : $category->name}}">
+                                <label><strong>Tên <span style="color: red">(*)</span> </strong></label>
+                                <input type="text" name="name" class="form-control" value="{{$is_create ? '' : $category->name}}" placeholder="Vui lòng nhập tên loại hàng">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" name="title" class="form-control" value="{{$is_create ? '' : $category->title}}" placeholder="Vui lòng nhập mô tả ngắn">
                             </div>
                             <div class="form-group">
-                                <label for="image"><strong>Chọn ảnh</strong></label>
+                                <label for="image">Chọn ảnh <span style="color: red">(*)</span></label>
                                 @if ($is_create)
                                 <input type="file" name="image" class="form-control-file" id="image">
                                 @else
                                 <input type="file" name="image" class="form-control-file" id="image">
-                                <img style="max-width:150px; height: 50px;" src="{{asset('images/'.$category->image)}}">
+                                <img style="max-width:150px; height: 50px;" src="{{asset('images/category/'.$category->image)}}">
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label><strong>Chú thích: </strong></label>
+                                <label><strong>Mô tả</strong></label>
                                 <textarea name="description">{{$is_create ? '' : $category->description}}</textarea>
                             </div>
                             <div class="form-group text-center">

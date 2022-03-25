@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Support\Facades\Cookie;
+use Aws\Credentials\Credentials;
+use Aws\S3\S3Client;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Env;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
     public function index(Request $request){
@@ -31,14 +29,33 @@ class CategoryController extends Controller
 
     public function postCreate(Request $request)
     {
-        $category              = new Category();
+        $category    = new Category();
+        $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+        $options = [
+            'version'     => 'latest',
+            'region'      => 'ap-southeast-1',
+            'credentials' => $credentials
+        ];
+        $s3 = new S3Client($options);
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $filepath = public_path('images/category/');
+
+        $extension = explode('.', $fileName);
+        $extension = strtolower(end($extension));
+
+        $key = md5(uniqid());
+        $tmp_file_name = "{$key}.{$extension}";
+        $file->move($filepath, $tmp_file_name);
+        $s3->putObject([
+                'Bucket' => config('aws.s3.bucket'),
+                'Key'    => "Category/{$fileName}",
+                'Body'   => fopen(public_path() . '/images/category/' . $tmp_file_name, 'rb'),
+        ]);
+        $category->image       = "$tmp_file_name";
         $category->name        = $request->name;
+        $category->title       = $request->title;
         $category->description = $request->description;
-        $image                 = $request->file('image');
-        $extension             = $image->getClientOriginalExtension();
-        $fileName              = time().'.'.$extension;
-        $image                 = $image->move('images', $fileName);
-        $category->image       = $fileName;
         $category->save();
         return redirect(route('category.index'))->with('info', 'Tạo category thành công với id = ' . $category->id);
     }
@@ -46,19 +63,34 @@ class CategoryController extends Controller
     public function postEdit(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        if($request->hasFile('image')){
-            $fileName = 'images/'.$category->image;
-            if(File::exists($fileName)){
-                File::delete($fileName);
-            }
-            $category->name        = $request->name;
-            $category->description = $request->description;
-            $image                 = $request->file('image');
-            $extension             = $image->getClientOriginalExtension();
-            $fileName              = time().'.'.$extension;
-            $image                 = $image->move('images', $fileName);
-            $category->image       = $fileName;
+        if($request->file('image')){
+            $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+            $options = [
+                'version'     => 'latest',
+                'region'      => 'ap-southeast-1',
+                'credentials' => $credentials
+            ];
+            $s3 = new S3Client($options);
+            $file = $request->file('image');
+            $fileName = $file->getClientOriginalName();
+            $filepath = public_path('images/category/');
+
+            $extension = explode('.', $fileName);
+            $extension = strtolower(end($extension));
+
+            $key = md5(uniqid());
+            $tmp_file_name = "{$key}.{$extension}";
+            $file->move($filepath, $tmp_file_name);
+            $s3->putObject([
+                    'Bucket' => config('aws.s3.bucket'),
+                    'Key'    => "Category/{$fileName}",
+                    'Body'   => fopen(public_path() . '/images/category/' . $tmp_file_name, 'rb'),
+            ]);
+            $category->image       = "$tmp_file_name";
         }
+        $category->name        = $request->name;
+        $category->title       = $request->title;
+        $category->description = $request->description;
         $category->update();
         return redirect(route('category.index'))->with('info', 'Sửa category có id = ' . $request->id . ' thành công');
 
