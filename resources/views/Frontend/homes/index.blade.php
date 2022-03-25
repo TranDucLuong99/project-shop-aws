@@ -197,7 +197,7 @@
                                 </a>
 
                                 <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">- {{$key->discount}} $</span>
+                                    <!-- <span class="product-alert me-auto">- {{$key->discount}} $</span> -->
                                 </div>
 
                                 <div class="product-info d-flex">

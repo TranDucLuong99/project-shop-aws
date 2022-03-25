@@ -26,12 +26,13 @@
             </div>
 
             <div class="col-lg-6 col-12">
+
                 <div class="product-info d-flex">
                     <div>
                         <h2 class="product-title mb-0">{{$product->name}}</h2>
                         <p class="product-p">{{$product->title}}</p>
                     </div>
-                    <small class="product-price text-muted ms-auto mt-auto mb-5">{{$product->new_price}} $</small>
+                    <small class="product-price text-muted ms-auto mt-auto mb-5"><span style="font-weight: bold">Giá: {{$product->new_price}} $</span></small>
                 </div>
 
                 <div class="product-description">
@@ -87,7 +88,7 @@
                     </a>
 
                     <div class="product-top d-flex">
-                        <span class="product-alert me-auto">- {{$key->discount}} $</span>
+                        <!-- <span class="product-alert me-auto">- {{$key->discount}} $</span> -->
                     </div>
 
                     <div class="product-info d-flex">

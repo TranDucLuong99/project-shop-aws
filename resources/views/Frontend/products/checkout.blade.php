@@ -83,12 +83,12 @@
                         <div class="d-block my-3">
                             <div class="custom-control custom-radio">
                                 <input id="httt-2" name="payment_status" type="radio" class="custom-control-input" required=""
-                                    value="1">
+                                    value="2">
                                 <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input id="httt-3" name="payment_status" type="radio" class="custom-control-input" required=""
-                                    value="2">
+                                    value="1">
                                 <label class="custom-control-label" for="httt-3">Ship COD</label>
                             </div>
                         </div>
