@@ -126,11 +126,11 @@ class UploadFileController extends Controller
                 '@SecurityProfile' => 'V2',
                 'Bucket' => $bucket,
                 'Key' => "uploads/$fileData->file",
-                'SaveAs' => public_path("downloads/$fileData->name.$fileType[1]")
+                'SaveAs' => public_path("../../File/$fileData->name.$fileType[1]")
             ]);
         } catch (AwsException $e) {
             dd($e->getMessage());
         }
-        return redirect(route('file.index'))->with('info', 'Đọc file thành công với id = ' . $fileData->id . 'ban');
+        return redirect(route('file.index'))->with('info', "Đọc file $fileData->name thành công!");
     }
 }
