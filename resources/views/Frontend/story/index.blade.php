@@ -6,8 +6,8 @@
 
             <div class="col-lg-6 col-12 header-info">
                 <h1>
-                    <span class="d-block text-primary">Công ty</span>
-                    <span class="d-block text-dark">Thời trang</span>
+                    <span class="d-block text-primary">Cửa hàng</span>
+                    <span class="d-block text-dark">thời trang</span>
                 </h1>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Gnoul Tran</h5>
+                        <h5 class="mb-0">Trần Đức Lương</h5>
                         <strong class="text-muted">Ceo</strong>
 
                         <!-- Button trigger modal -->
@@ -42,10 +42,10 @@
 
             <div class="col-lg-4 mb-4 col-12">
                 <div class="team-thumb d-flex align-items-center">
-                    <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
+                    <img src="{{asset('frontend/images/people/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Jack Nguyen</h5>
+                        <h5 class="mb-0">Gnoul Tran</h5>
                         <strong class="text-muted">Co Founder</strong>
 
                         <!-- Button trigger modal -->
@@ -58,10 +58,10 @@
 
             <div class="col-lg-4 mb-lg-0 mb-4 col-12">
                 <div class="team-thumb d-flex align-items-center">
-                    <img src="{{asset('frontend/images/people/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
+                    <img src="{{asset('frontend/images/people/beautiful-woman-face-portrait-brown-background.jpeg')}}" class="img-fluid custom-circle-image team-image me-4" alt="">
 
                     <div class="team-info">
-                        <h5 class="mb-0">Andy Pham</h5>
+                        <h5 class="mb-0">Leo Leo</h5>
                         <strong class="text-muted">Founder</strong>
 
                         <!-- Button trigger modal -->
@@ -100,7 +100,7 @@
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/beautiful-woman-face-portrait-brown-background.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
 
-                            <span>Mei, <strong class="text-muted">Phòng ý tưởng</strong></span>
+                            <span>Leo Leo, <strong class="text-muted">Phòng ý tưởng</strong></span>
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/portrait-british-woman.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
 
-                            <span>May, <strong class="text-muted">Chuyên viên chất liệu</strong></span>
+                            <span>Gnoul, <strong class="text-muted">Chuyên viên chất liệu</strong></span>
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
 
                         <div class="slick-testimonial-client d-flex align-items-center mt-4">
                             <img src="{{asset('frontend/images/people/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg')}}" class="img-fluid custom-circle-image me-3" alt="">
-                            <span>Cathy, <strong class="text-muted">Chuyên viên marketing</strong></span>
+                            <span>Luong Tran, <strong class="text-muted">Chuyên viên marketing</strong></span>
                         </div>
                     </div>
                 </div>

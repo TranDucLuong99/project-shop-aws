@@ -131,6 +131,8 @@
             // $('#total-quantity-show').text();
             alertify.success('Thêm sản phẩm thành công');
 
+        }).error(function(response){
+            alertify.error('Vui lòng đăng nhập');
         });
     }
 </script>
