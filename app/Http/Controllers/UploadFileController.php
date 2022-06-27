@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bucket;
 use App\Models\File;
 use Aws\Credentials\Credentials;
 use Aws\Crypto\KmsMaterialsProviderV2;
@@ -23,11 +24,15 @@ class UploadFileController extends Controller
 
     public function getUpload(Request $request)
     {
-        return view('Admin.files.create');
+        $folders = Bucket::all();
+        return view('Admin.files.create', compact('folders'));
     }
 
     public function uploadFileEncrypt(Request $request)
     {
+        $folders = Bucket::find($request->folder_id);
+        $folderName = $folders->name;
+
         $fileData    = new File();
         $credentials = new Credentials(config('aws.s3.key'), config('aws.s3.secret'));
         $encryptionClient = new S3EncryptionClientV2(
@@ -60,7 +65,7 @@ class UploadFileController extends Controller
         $fileName = $file->getClientOriginalName();
 
         $tmpName = $file->getPathname();
-        $filepath = public_path('uploads/');
+        $filepath = public_path("{$folderName}/");
 
         $extension = explode('.', $fileName);
         $extension = strtolower(end($extension));
@@ -71,20 +76,21 @@ class UploadFileController extends Controller
 
         $file->move($filepath, $tmp_file_name);
 
-        $contentType = mime_content_type(public_path() . '/uploads/' . $tmp_file_name);
+        $contentType = mime_content_type(public_path() . "/{$folderName}/" . $tmp_file_name);
 
         $encryptionClient->putObject([
             '@MaterialsProvider' => $materialsProvider,
             '@CipherOptions' => $cipherOptions,
             '@KmsEncryptionContext' => ['context-key' => 'context-value'],
             'Bucket' => $bucket,
-            'Key' => "uploads/{$tmp_file_name}",
-            'Body' => fopen(public_path() . '/uploads/' . $tmp_file_name, 'rb'),
+            'Key' => "{$folderName}/{$tmp_file_name}",
+            'Body' => fopen(public_path() . "/{$folderName}/" . $tmp_file_name, 'rb'),
             'Content-Type' => $contentType
         ]);
-        unlink(public_path() . '/uploads/' . $tmp_file_name);
+        unlink(public_path() . "/{$folderName}/" . $tmp_file_name);
         $fileData->file       = "$tmp_file_name";
         $fileData->name        = $request->name;
+        $fileData->folder_name   = $folderName;
         $fileData->save();
         return redirect(route('file.index'))->with('info', 'Upload file thành công với id = ' . $fileData->id);
     }
@@ -92,6 +98,7 @@ class UploadFileController extends Controller
     public function decryptFile(Request $request, $id)
     {
         $fileData = File::find($id);
+        $folderName = $fileData->folder_name;
         $fileType = explode(".", $fileData->file);
         $credentials = new Credentials(config('aws.s3.key'), config('aws.s3.secret'));
         $encryptionClient = new S3EncryptionClientV2(
@@ -125,7 +132,7 @@ class UploadFileController extends Controller
                 '@CipherOptions' => $cipherOptions,
                 '@SecurityProfile' => 'V2',
                 'Bucket' => $bucket,
-                'Key' => "uploads/$fileData->file",
+                'Key' => "{$folderName}/$fileData->file",
                 'SaveAs' => public_path("../../File/$fileData->name.$fileType[1]")
             ]);
         } catch (AwsException $e) {

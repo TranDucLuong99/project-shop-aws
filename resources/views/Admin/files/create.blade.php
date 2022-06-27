@@ -37,6 +37,15 @@
                                 <input type="text" name="name" class="form-control" value="" placeholder="Vui lòng nhập tên">
                             </div>
                             <div class="form-group">
+                                <label for="folder_id">Chọn thư mục<span style="color: red">(*)</span></label>
+                                <select  name = "folder_id" class="form-control" id="folder_id">
+                                @foreach($folders as $key)
+                                        
+                                        <option value="{{$key->id}}">{{ $key->name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="file">Chọn ảnh <span style="color: red">(*)</span></label>
                                 <input type="file" name="file" class="form-control-file" id="file">
                             </div>

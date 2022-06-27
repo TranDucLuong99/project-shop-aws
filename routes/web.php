@@ -7,6 +7,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\S3Controller;
 use App\Http\Controllers\Shop\CartController;
 use App\Http\Controllers\Shop\PageController;
 use App\Http\Controllers\Shop\ShopContactController;
@@ -89,6 +90,15 @@ Route::group(['middleware' => ['auth', 'role'], 'prefix' => 'admin'], function (
         Route::get('decrytion-file/{id}', [UploadFileController::class, 'decryptFile'])->name('file.decrypt');
     });
 
+    Route::get('/bucket', [S3Controller::class, 'index'])->name('bucket.index');
+        Route::get('bucket/create',[S3Controller::class, 'getCreate'])->name('bucket.get_create');
+        Route::post('bucket/create',[S3Controller::class, 'postCreate'])->name('bucket.bucket_create');
+        Route::post('bucket/create-folder',[S3Controller::class, 'createFolder'])->name('bucket');
+        Route::get('bucket/edit/{id}',[S3Controller::class, 'getEdit'])->name('bucket.get_edit');
+        Route::post('bucket/edit/{id}',[S3Controller::class, 'postEdit'])->name('bucket.bucket_edit');
+        Route::delete('bucket',[S3Controller::class, 'delete'])->name('bucket.delete');
+        Route::patch('bucket',[S3Controller::class, 'restore'])->name('bucket.restore');
+
     Route::group(['prefix' => 'user'], function (){
         Route::get('/user', [UserController::class, 'index'])->name('user.index');
          Route::group(['middleware' => 'checkAdmin'], function (){
@@ -120,6 +130,4 @@ Route::group(['prefix' => 'Shop'], function () {
     Route::get('/sign-up',[PageController::class, 'signUp'])->name('shop.home.signUp');
     Route::post('/sign-up',[PageController::class, 'signUpUp'])->name('shop.home.signUpUp');
 });
-
-
 
