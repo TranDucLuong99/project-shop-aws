@@ -26,7 +26,10 @@ class NewsController extends Controller
     {
         $new              = new News();
         if($request->file('image')){
-            $credentials = new Credentials(config('aws.root_user.key'), config('aws.root_user.secret'));
+            if(Auth()->user()->key_aws != config('aws.s3.key') || Auth()->user()->secret_key != config('aws.s3.secret')){
+                return redirect(route('new.index'))->with('info', 'Bạn không thể tải ảnh lên!');
+            }
+            $credentials = new Credentials(Auth()->user()->key_aws,  Auth()->user()->secret_key);
             $options = [
                 'version'     => 'latest',
                 'region'      => 'ap-southeast-1',

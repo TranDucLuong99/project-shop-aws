@@ -57,6 +57,8 @@ class UserController extends Controller
         $user->address  = $request->address;
         $user->role     = $request->role;
         $user->phone    = $request->phone;
+        $user->key_aws    = $request->role = 1 ? "AKIAQBHIIQLPAPO56SK7" : "AKIAQBHIIQLPOTHETXND";
+        $user->secret_key    = $request->role = 1 ? "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" : "feq/X00AYVzZj4sD8hnvZoELeCkopWwRNimPTLoD";
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect(route('user.index'))->with('info', 'Tạo mới user thành công với id = ' . $user->id);
