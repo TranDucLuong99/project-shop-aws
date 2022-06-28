@@ -83,22 +83,27 @@ Route::group(['middleware' => ['auth', 'role'], 'prefix' => 'admin'], function (
         });
     });
 
+
+
     Route::group(['prefix' => 'file'], function (){
         Route::get('/file', [UploadFileController::class, 'index'])->name('file.index');
-        Route::get('file/upload',[UploadFileController::class, 'getUpload'])->name('file.get_upload');
-        Route::post('upload-secret', [UploadFileController::class, 'uploadFileEncrypt'])->name('file.upload');
-        Route::get('decrytion-file/{id}', [UploadFileController::class, 'decryptFile'])->name('file.decrypt');
+        Route::group(['middleware' => 'checkAdmin'], function (){
+            Route::get('file/upload',[UploadFileController::class, 'getUpload'])->name('file.get_upload');
+            Route::post('upload-secret', [UploadFileController::class, 'uploadFileEncrypt'])->name('file.upload');
+            Route::get('decrytion-file/{id}', [UploadFileController::class, 'decryptFile'])->name('file.decrypt');
+        });
     });
 
-    Route::get('/bucket', [S3Controller::class, 'index'])->name('bucket.index');
+        Route::get('/bucket', [S3Controller::class, 'index'])->name('bucket.index');
+        Route::group(['middleware' => 'checkAdmin'], function (){
         Route::get('bucket/create',[S3Controller::class, 'getCreate'])->name('bucket.get_create');
         Route::post('bucket/create',[S3Controller::class, 'postCreate'])->name('bucket.bucket_create');
+    });
         Route::post('bucket/create-folder',[S3Controller::class, 'createFolder'])->name('bucket');
         Route::get('bucket/edit/{id}',[S3Controller::class, 'getEdit'])->name('bucket.get_edit');
         Route::post('bucket/edit/{id}',[S3Controller::class, 'postEdit'])->name('bucket.bucket_edit');
         Route::delete('bucket',[S3Controller::class, 'delete'])->name('bucket.delete');
         Route::patch('bucket',[S3Controller::class, 'restore'])->name('bucket.restore');
-
     Route::group(['prefix' => 'user'], function (){
         Route::get('/user', [UserController::class, 'index'])->name('user.index');
          Route::group(['middleware' => 'checkAdmin'], function (){
